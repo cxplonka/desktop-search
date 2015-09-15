@@ -1,0 +1,2 @@
+// jspmm-all gradle build file
+apply plugin: 'java'

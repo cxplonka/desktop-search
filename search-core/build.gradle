@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "com.semantic.ApplicationContext"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'net.sf.trove4j:trove4j:3.0.3'
+    compile 'org.apache.sanselan:sanselan:0.97-incubator'
+    compile 'net.sf.jpathwatch:jpathwatch:0.95'
+    compile 'org.swinglabs.swingx:swingx-all:1.6.5-1'
+    
+    compile 'org.apache.lucene:lucene-core:5.3.0'
+    compile 'org.apache.lucene:lucene-facet:5.3.0'
+    compile 'org.apache.lucene:lucene-analyzers-common:5.3.0'
+    compile 'org.apache.lucene:lucene-memory:5.3.0'
+    compile 'org.apache.lucene:lucene-highlighter:5.3.0'
+    compile 'org.apache.lucene:lucene-misc:5.3.0'
+    compile 'org.apache.lucene:lucene-suggest:5.3.0'
+    compile 'org.apache.lucene:lucene-queryparser:5.3.0'
+    compile 'org.apache.lucene:lucene-queries:5.3.0'
+    compile 'org.apache.lucene:lucene-backward-codecs:5.3.0'
+    
+    compile fileTree(dir: 'libraries', include: ['*.jar'])
+    compile fileTree(dir: 'libraries/swing', include: ['*.jar'])
+    compile fileTree(dir: 'libraries/look&feel', include: ['*.jar'])
+    
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}

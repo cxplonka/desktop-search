@@ -1,0 +1,36 @@
+
+<synth>
+    
+    <!-- SCROLLBAR ARROWS -->
+    <style id="scrollBarArrowStyle">
+        <!--
+        <state>
+            <imagePainter method="arrowButtonForeground" path="/com/semantic/resource/arrow_back.png" center="true" direction="north" />
+        </state>
+        -->
+    </style>
+    <bind style="scrollBarArrowStyle" type="REGION" key="ArrowButton" />
+    
+    <!-- SCROLLBAR THUMB -->
+    <style id="scrollBarThumbStyle">        
+        <!--
+        <state>
+            <imagePainter method="scrollBarThumbBackground" direction="horizontal" path="images/scrollBar-thumb-horizontal.png" sourceInsets="0 7 0 7" />
+            <imagePainter method="scrollBarThumbBackground" direction="vertical" path="images/scrollBar-thumb-vertical.png" sourceInsets="7 0 7 0" />
+            <imagePainter method="scrollBarThumbBackground" direction="horizontal" path="images/scrollBar-thumb-horizontal-grip.png" center="true" />
+            <imagePainter method="scrollBarThumbBackground" direction="vertical" path="images/scrollBar-thumb-vertical-grip.png" center="true" />
+        </state>    
+
+        <state value="MOUSE_OVER">
+            <imagePainter method="scrollBarThumbBackground" direction="horizontal" path="images/scrollBar-thumb-horizontal-mouseover.png" sourceInsets="0 7 0 7" />
+            <imagePainter method="scrollBarThumbBackground" direction="vertical" path="images/scrollBar-thumb-vertical-mouseover.png" sourceInsets="7 0 7 0" />
+            <imagePainter method="scrollBarThumbBackground" direction="horizontal" path="images/scrollBar-thumb-horizontal-grip.png" center="true" />
+            <imagePainter method="scrollBarThumbBackground" direction="vertical" path="images/scrollBar-thumb-vertical-grip.png" center="true" />
+
+        </state>
+        -->
+        <state value="DISABLED">
+        </state>
+    </style>
+    <bind style="scrollBarThumbStyle" type="REGION" key="ScrollBarThumb" />
+</synth>
