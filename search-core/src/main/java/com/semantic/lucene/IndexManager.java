@@ -81,6 +81,7 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
         /* setup indexwriter, same analyzer like for search */
         try {
             index = FSDirectory.open(new File(ApplicationContext.ISEARCH_HOME + "/.lucene").toPath());
+            System.out.println(index);
             taxoIndex = FSDirectory.open(new File(ApplicationContext.ISEARCH_HOME + "/.lucene/taxonomy").toPath());
             taxoWriter = new DirectoryTaxonomyWriter(taxoIndex, IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
             /* setup indexwriter */
@@ -284,8 +285,8 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
         findHandle(ImageLuceneFileHandler.class).setClassifyImage(MainFrame.PREF.getBoolean(
                 GlobalKeys.KEY_IMAGE_COLOR_CLASSIFICATION, false));
         /* listen for filesystem events with the lucene manager */
-        context.getProperty(ApplicationContext.FILESYSTEM_MANAGER).
-                addFileSystemChangeListener(this);
+//        context.getProperty(ApplicationContext.FILESYSTEM_MANAGER).
+//                addFileSystemChangeListener(this);
     }
 
     @Override

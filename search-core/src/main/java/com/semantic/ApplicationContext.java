@@ -105,7 +105,7 @@ public final class ApplicationContext extends PropertyMap implements Context {
         /* set introspection path */
         Introspector.setBeanInfoSearchPath(new String[]{"com.semantic.model.beaninfo"});
         /* create file system manager and start */
-        setProperty(FILESYSTEM_MANAGER, new FileSystemWatch());
+//        setProperty(FILESYSTEM_MANAGER, new FileSystemWatch());
         /* create view */
         setProperty(MAIN_VIEW, new MainFrame(this));
         getProperty(MAIN_VIEW).addWindowListener(new WindowAdapter() {
@@ -119,9 +119,9 @@ public final class ApplicationContext extends PropertyMap implements Context {
 
     protected void startContext() {
         log.info(LucenePackage.get().toString());
-        getProperty(FILESYSTEM_MANAGER).start();
+//        getProperty(FILESYSTEM_MANAGER).start();
         /* register new directories in watch service */
-        directoryListener = new FileSystemOntologyModelListener(getProperty(FILESYSTEM_MANAGER));
+//        directoryListener = new FileSystemOntologyModelListener(getProperty(FILESYSTEM_MANAGER));
         try {
             /* start plugin manager */
             getProperty(PLUGIN_MANAGER).init(this);
@@ -130,7 +130,7 @@ public final class ApplicationContext extends PropertyMap implements Context {
         }
         /* create/load model */
         setProperty(MODEL, ModelStore.restore(new File(ISEARCH_HOME + "/mysearch.xml")));
-        directoryListener.setModel(getProperty(MODEL));
+//        directoryListener.setModel(getProperty(MODEL));
     }
 
     protected void stopContext() {
