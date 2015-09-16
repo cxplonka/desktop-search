@@ -1,7 +1,4 @@
 apply plugin: 'java'
-apply plugin: 'application'
-
-mainClassName = "com.semantic.ApplicationContext"
 
 repositories {
     mavenCentral()
@@ -23,7 +20,7 @@ dependencies {
     compile 'org.apache.lucene:lucene-queryparser:5.3.0'
     compile 'org.apache.lucene:lucene-queries:5.3.0'
     compile 'org.apache.lucene:lucene-backward-codecs:5.3.0'
-    
+   
     compile fileTree(dir: 'libraries', include: ['*.jar'])
     compile fileTree(dir: 'libraries/swing', include: ['*.jar'])
     compile fileTree(dir: 'libraries/look&feel', include: ['*.jar'])

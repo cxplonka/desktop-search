@@ -1,0 +1,4 @@
+com.semantic.lucene.fields.CompanyField
+com.semantic.lucene.fields.ContentTypeField
+com.semantic.lucene.fields.CreatorField
+com.semantic.lucene.fields.TitleField

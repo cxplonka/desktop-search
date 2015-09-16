@@ -81,7 +81,6 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
         /* setup indexwriter, same analyzer like for search */
         try {
             index = FSDirectory.open(new File(ApplicationContext.ISEARCH_HOME + "/.lucene").toPath());
-            System.out.println(index);
             taxoIndex = FSDirectory.open(new File(ApplicationContext.ISEARCH_HOME + "/.lucene/taxonomy").toPath());
             taxoWriter = new DirectoryTaxonomyWriter(taxoIndex, IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
             /* setup indexwriter */

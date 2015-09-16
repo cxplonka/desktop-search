@@ -1,1 +1,2 @@
 include 'search-core'
+include 'search-handler-tika'

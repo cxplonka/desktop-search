@@ -1,2 +1,19 @@
-// jspmm-all gradle build file
 apply plugin: 'java'
+apply plugin: 'application'
+
+allprojects {
+    apply plugin: 'java'
+    group = 'com.semantic'
+    version = '1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+mainClassName = "com.semantic.ApplicationContext"
+
+dependencies {
+    compile project('search-core')
+    compile project('search-handler-tika')
+}
