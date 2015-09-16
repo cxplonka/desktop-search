@@ -3,9 +3,9 @@
 Please note that this an experimental program to test different kinds of information retrieval
 and handling of different kind of data.
 
+![](https://github.com/cxplonka/desktop-search/blob/master/screenshot0.png)
 
-
-
+![](https://github.com/cxplonka/desktop-search/blob/master/screenshot1.png)
 
 ## License
 
