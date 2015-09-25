@@ -68,15 +68,15 @@ public class SemanticTreeCellRenderer extends DefaultTreeCellRenderer {
             OntologyNode onode = node.getUserObject();
             /* */
             OntologyNode root = (OntologyNode) onode.getRoot();
-            _range.setBounds(0, root.getProperty(FacetQueryHitCountCollector.KEY_FACET_COUNT));
-            _facet_count = onode.getProperty(FacetQueryHitCountCollector.KEY_FACET_COUNT);
-            _facet_root_count = onode.getProperty(FacetQueryHitCountCollector.KEY_FACET_ROOT_COUNT);
+            _range.setBounds(0, root.get(FacetQueryHitCountCollector.KEY_FACET_COUNT));
+            _facet_count = onode.get(FacetQueryHitCountCollector.KEY_FACET_COUNT);
+            _facet_root_count = onode.get(FacetQueryHitCountCollector.KEY_FACET_ROOT_COUNT);
             /* property from IQueryGenerator strike through */
-            if (onode.getProperty(IQueryGenerator.BOOLEAN_CLAUSE).equals(IQueryGenerator.CLAUSE.NOT)) {
+            if (onode.get(IQueryGenerator.BOOLEAN_CLAUSE).equals(IQueryGenerator.CLAUSE.NOT)) {
                 setText(String.format("<html><strike>%s</strike></html>", value.toString()));
             }
             /* property from IQueryGenerator strike through */
-            if (onode.getProperty(AbstractOMutableTreeNode.KEY_NODE_HIGHLIGHTED)) {
+            if (onode.get(AbstractOMutableTreeNode.KEY_NODE_HIGHLIGHTED)) {
                 setForeground(highlightColor);
             }
         }

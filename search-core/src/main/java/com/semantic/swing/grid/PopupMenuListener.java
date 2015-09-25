@@ -159,8 +159,7 @@ class PopupMenuListener extends MouseAdapter implements ListSelectionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            IndexManager index = ApplicationContext.instance().
-                    getProperty(IndexManager.LUCENE_MANAGER);
+            IndexManager index = ApplicationContext.instance().get(IndexManager.LUCENE_MANAGER);
             //really!?            
             if (docIDs.length > 0) {
                 int ret = JOptionPane.showConfirmDialog(
@@ -221,7 +220,7 @@ class PopupMenuListener extends MouseAdapter implements ListSelectionListener {
             File directory = null;
             //native dialog for mac, not so much problems
             if (OS.isMacOSX()) {
-                MainFrame frame = ApplicationContext.instance().getProperty(ApplicationContext.MAIN_VIEW);
+                MainFrame frame = ApplicationContext.instance().get(ApplicationContext.MAIN_VIEW);
                 FileDialog fileDialog = new FileDialog(frame, "Select Directory", FileDialog.LOAD);
                 fileDialog.setVisible(true);
                 //construct directory path

@@ -48,20 +48,20 @@ public class PlugInManager extends SimpleLookup implements IPlugIn {
     }
 
     @Override
-    public <T> T getProperty(IPropertyKey<T> key) {
+    public <T> T get(IPropertyKey<T> key) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public <T> void setProperty(IPropertyKey<T> key, T value) {
+    public <T> void set(IPropertyKey<T> key, T value) {
     }
 
     @Override
-    public <T> void removeProperty(IPropertyKey<T> key) {
+    public <T> void remove(IPropertyKey<T> key) {
     }
 
     @Override
-    public boolean containsProperty(IPropertyKey key) {
+    public boolean has(IPropertyKey key) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

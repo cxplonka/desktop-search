@@ -170,7 +170,7 @@ public class DocumentPropertyView extends javax.swing.JPanel {
                         }
                         ImageUtil.syncMetadata(file, file, outputSet);
                         /* reindex file */
-                        IndexManager index = ApplicationContext.instance().getProperty(
+                        IndexManager index = ApplicationContext.instance().get(
                                 IndexManager.LUCENE_MANAGER);
                         index.entryModified(file);
                     }

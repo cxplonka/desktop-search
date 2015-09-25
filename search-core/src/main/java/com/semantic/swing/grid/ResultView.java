@@ -277,7 +277,7 @@ public class ResultView extends JPanel implements MouseListener, PreferenceChang
                     Boolean.valueOf(pce.getNewValue())));
             repaint();
         } else if (pce.getKey().equals(KEY_IMAGE_COLOR_CLASSIFICATION)) {
-            IndexManager index = ApplicationContext.instance().getProperty(
+            IndexManager index = ApplicationContext.instance().get(
                     IndexManager.LUCENE_MANAGER);
             ImageLuceneFileHandler handle = index.findHandle(ImageLuceneFileHandler.class);
             handle.setClassifyImage(Boolean.valueOf(pce.getNewValue()));

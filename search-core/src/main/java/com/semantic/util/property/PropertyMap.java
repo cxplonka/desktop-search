@@ -27,7 +27,7 @@ public class PropertyMap extends PropertySupport implements IPropertyMap {
     protected HashMap<IPropertyKey, Object> properties;
 
     @Override
-    public boolean containsProperty(IPropertyKey key) {
+    public boolean has(IPropertyKey key) {
         if (properties != null) {
             return properties.containsKey(key);
         }
@@ -35,7 +35,7 @@ public class PropertyMap extends PropertySupport implements IPropertyMap {
     }
 
     @Override
-    public <T> T getProperty(IPropertyKey<T> key) {
+    public <T> T get(IPropertyKey<T> key) {
         if (properties == null || !properties.containsKey(key)) {
             return key.getDefaultValue();
         }
@@ -44,14 +44,14 @@ public class PropertyMap extends PropertySupport implements IPropertyMap {
     }
 
     @Override
-    public <T> void removeProperty(IPropertyKey<T> key) {
+    public <T> void remove(IPropertyKey<T> key) {
         if (properties != null) {
             properties.remove(key);
         }
     }
 
     @Override
-    public <T> void setProperty(IPropertyKey<T> key, T value) {
+    public <T> void set(IPropertyKey<T> key, T value) {
         if (properties == null) {
             properties = new HashMap<IPropertyKey, Object>();
         }

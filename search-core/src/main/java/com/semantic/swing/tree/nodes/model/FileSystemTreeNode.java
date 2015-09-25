@@ -70,7 +70,7 @@ public class FileSystemTreeNode extends OGroupTreeNode<OFileSystem> implements I
             File directory = null;
             /* native dialog for mac, not so much problems */
             if (OS.isMacOSX()) {
-                MainFrame frame = ApplicationContext.instance().getProperty(ApplicationContext.MAIN_VIEW);
+                MainFrame frame = ApplicationContext.instance().get(ApplicationContext.MAIN_VIEW);
                 FileDialog fileDialog = new FileDialog(frame, "Select Directory", FileDialog.LOAD);
                 fileDialog.setVisible(true);
                 /* construct directory path */
@@ -111,7 +111,7 @@ public class FileSystemTreeNode extends OGroupTreeNode<OFileSystem> implements I
             /* */
             if (ret == JOptionPane.YES_OPTION) {
                 /* start indexing */
-                IndexManager lucene = ApplicationContext.instance().getProperty(
+                IndexManager lucene = ApplicationContext.instance().get(
                         IndexManager.LUCENE_MANAGER);
                 try {
                     /* delete complete index */

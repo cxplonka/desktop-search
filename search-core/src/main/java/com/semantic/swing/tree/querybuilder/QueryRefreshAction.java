@@ -33,8 +33,8 @@ public class QueryRefreshAction extends AbstractAction implements
     public void actionPerformed(ActionEvent e) {
         ApplicationContext ctx = ApplicationContext.instance();
         /* push to task service */
-        ctx.getProperty(LUCENE_MANAGER).getTaskService().submit(
-                new LuceneQueryTask(ctx.getProperty(ApplicationContext.QUERY_MANAGER).generateQuery()));
+        ctx.get(LUCENE_MANAGER).getTaskService().submit(
+                new LuceneQueryTask(ctx.get(ApplicationContext.QUERY_MANAGER).generateQuery()));
     }
     
     @Override

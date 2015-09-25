@@ -274,9 +274,9 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
     public void init(Context context) throws Exception {
         log.info("init lucene index manager...");
         /* inject use into the context */
-        context.setProperty(LUCENE_MANAGER, this);
+        context.set(LUCENE_MANAGER, this);
         /* load and register file handle */
-        PlugInManager pluginManager = context.getProperty(ApplicationContext.PLUGIN_MANAGER);
+        PlugInManager pluginManager = context.get(ApplicationContext.PLUGIN_MANAGER);
         for (LuceneFileHandler handle : pluginManager.allInstances(LuceneFileHandler.class)) {
             registerFileHandle(handle);
         }
@@ -292,7 +292,7 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
     public void shutdown(Context context) throws Exception {
         log.info("shutdown lucene index manager...");
         /* remove use from context */
-        context.removeProperty(LUCENE_MANAGER);
+        context.remove(LUCENE_MANAGER);
         index.close();
         taxoIndex.close();
     }

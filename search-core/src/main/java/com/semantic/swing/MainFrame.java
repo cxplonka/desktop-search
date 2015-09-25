@@ -402,7 +402,7 @@ public final class MainFrame extends javax.swing.JFrame implements PropertyChang
         PREF.putInt(GRID_ZOOM_FACTOR, resultView.getZoomFactor());
         /* save current state */
         ModelStore.store(
-                ApplicationContext.instance().getProperty(ApplicationContext.MODEL),
+                ApplicationContext.instance().get(ApplicationContext.MODEL),
                 new File(ApplicationContext.ISEARCH_HOME + "/mysearch.xml"));
         /* gui states */
         PREF.putInt(ALL_DIVIDER_LOCATION, allSplit.getDividerLocation());

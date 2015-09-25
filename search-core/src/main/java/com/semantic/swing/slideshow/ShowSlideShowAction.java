@@ -27,7 +27,7 @@ public class ShowSlideShowAction extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
         if (dialog == null) {
             ApplicationContext ctx = ApplicationContext.instance();
-            dialog = new SlideShowDialog(ctx.getProperty(ApplicationContext.MAIN_VIEW));
+            dialog = new SlideShowDialog(ctx.get(ApplicationContext.MAIN_VIEW));
         }
         dialog.setModel(lazyList);
         dialog.setVisible(true);

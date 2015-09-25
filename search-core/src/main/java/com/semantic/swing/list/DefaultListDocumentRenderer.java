@@ -101,10 +101,10 @@ public class DefaultListDocumentRenderer extends JLabel implements ListCellRende
                 /* needs to be cached - because every draw call perform this */
                 if (curDocument.getField(ContentField.NAME) != null) {
                     result = TermHightlight.hightlight(
-                            ctx.getProperty(ApplicationContext.QUERY_MANAGER).getCurrentQuery(),
+                            ctx.get(ApplicationContext.QUERY_MANAGER).getCurrentQuery(),
                             ContentField.NAME,
                             curDocument.get(ContentField.NAME),
-                            ctx.getProperty(IndexManager.LUCENE_MANAGER).getIndexWriter().getAnalyzer());
+                            ctx.get(IndexManager.LUCENE_MANAGER).getIndexWriter().getAnalyzer());
                 }
             } catch (Exception ex) {
             } finally {

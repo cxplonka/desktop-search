@@ -36,7 +36,7 @@ public class ExportModelAction extends AbstractAction {
         int ret = chooser.showSaveDialog((Component) e.getSource());
         if (ret == JFileChooser.APPROVE_OPTION) {
             /* export */
-            OModel model = ApplicationContext.instance().getProperty(ApplicationContext.MODEL);
+            OModel model = ApplicationContext.instance().get(ApplicationContext.MODEL);
             ModelStore.store(model, chooser.getSelectedFile());
         }
     }

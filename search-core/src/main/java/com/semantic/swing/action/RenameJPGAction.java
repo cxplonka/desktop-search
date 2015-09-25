@@ -49,7 +49,7 @@ public class RenameJPGAction extends AbstractAction {
         File directory = null;
         /* native dialog for mac, not so much problems */
         if (OS.isMacOSX()) {
-            MainFrame frame = ApplicationContext.instance().getProperty(ApplicationContext.MAIN_VIEW);
+            MainFrame frame = ApplicationContext.instance().get(ApplicationContext.MAIN_VIEW);
             FileDialog fileDialog = new FileDialog(frame, "Select Directory", FileDialog.LOAD);
             fileDialog.setVisible(true);
             /* construct directory path */
@@ -77,7 +77,7 @@ public class RenameJPGAction extends AbstractAction {
     private void recursiveRename(final File directory) {
         setEnabled(false);
 
-        IndexManager lucene = ApplicationContext.instance().getProperty(
+        IndexManager lucene = ApplicationContext.instance().get(
                 IndexManager.LUCENE_MANAGER);
         /* push to task service */
         lucene.getTaskService().submit(new Runnable() {

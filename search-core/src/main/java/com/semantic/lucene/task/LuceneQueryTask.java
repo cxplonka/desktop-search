@@ -35,7 +35,7 @@ public class LuceneQueryTask extends SwingWorker<TopDocs, Object> {
     }
     
     private TopDocs working()throws Exception{
-        IndexManager lucene = ApplicationContext.instance().getProperty(
+        IndexManager lucene = ApplicationContext.instance().get(
                 IndexManager.LUCENE_MANAGER);
         log.info(String.format("current search query: %s", query));
         searcher = lucene.getIndexSearcher();        

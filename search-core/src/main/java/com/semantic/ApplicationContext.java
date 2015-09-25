@@ -29,7 +29,6 @@ import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
-import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import org.apache.lucene.LucenePackage;
 import com.semantic.plugin.Context;
@@ -107,8 +106,8 @@ public final class ApplicationContext extends PropertyMap implements Context {
         /* create file system manager and start */
 //        setProperty(FILESYSTEM_MANAGER, new FileSystemWatch());
         /* create view */
-        setProperty(MAIN_VIEW, new MainFrame(this));
-        getProperty(MAIN_VIEW).addWindowListener(new WindowAdapter() {
+        set(MAIN_VIEW, new MainFrame(this));
+        get(MAIN_VIEW).addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 stopContext();
@@ -124,12 +123,12 @@ public final class ApplicationContext extends PropertyMap implements Context {
 //        directoryListener = new FileSystemOntologyModelListener(getProperty(FILESYSTEM_MANAGER));
         try {
             /* start plugin manager */
-            getProperty(PLUGIN_MANAGER).init(this);
+            get(PLUGIN_MANAGER).init(this);
         } catch (Exception ex) {
             log.log(Level.SEVERE, "can not start plugin manager.", ex);
         }
         /* create/load model */
-        setProperty(MODEL, ModelStore.restore(new File(ISEARCH_HOME + "/mysearch.xml")));
+        set(MODEL, ModelStore.restore(new File(ISEARCH_HOME + "/mysearch.xml")));
 //        directoryListener.setModel(getProperty(MODEL));
     }
 
@@ -137,7 +136,7 @@ public final class ApplicationContext extends PropertyMap implements Context {
         log.info("shutdown application context!");
         try {
             /* start plugin manager */
-            getProperty(PLUGIN_MANAGER).shutdown(this);
+            get(PLUGIN_MANAGER).shutdown(this);
         } catch (Exception ex) {
             log.log(Level.SEVERE, "can not shutdown plugin manager.", ex);
         }
@@ -182,7 +181,7 @@ public final class ApplicationContext extends PropertyMap implements Context {
 //            public void run() {
                 ApplicationContext ctx = ApplicationContext.instance();
                 /* swing view */
-                ctx.getProperty(MAIN_VIEW).setVisible(true);
+                ctx.get(MAIN_VIEW).setVisible(true);
 //            }
 //        });
     }

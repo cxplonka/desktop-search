@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.semantic.util.property;
 
 import java.beans.PropertyChangeListener;
@@ -17,11 +16,11 @@ public interface IPropertyMap {
 
     public void removePropertyChangeListener(PropertyChangeListener l);
 
-    public <T> T getProperty(IPropertyKey<T> key);
+    public <T> T get(IPropertyKey<T> key);
 
-    public <T> void setProperty(IPropertyKey<T> key, T value);
-    
-    public <T> void removeProperty(IPropertyKey<T> key);
-    
-    public boolean containsProperty(IPropertyKey key);
+    public <T> void set(IPropertyKey<T> key, T value);
+
+    public <T> void remove(IPropertyKey<T> key);
+
+    public boolean has(IPropertyKey key);
 }

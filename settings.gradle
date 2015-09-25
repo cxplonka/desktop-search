@@ -1,2 +1,3 @@
 include 'search-core'
 include 'search-handler-tika'
+include 'search-view-worldwind'

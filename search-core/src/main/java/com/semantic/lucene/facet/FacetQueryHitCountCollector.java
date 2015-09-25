@@ -83,9 +83,9 @@ public class FacetQueryHitCountCollector {
         /* sum up for parent node */
         if (node instanceof OGroup) {
             OGroup group = (OGroup) node;
-            if (group.containsProperty(KEY_BITSET) && group.getProperty(
+            if (group.has(KEY_BITSET) && group.get(
                     KEY_BITSET).length() == subSet.length()) {
-                subSet.or(group.getProperty(KEY_BITSET));
+                subSet.or(group.get(KEY_BITSET));
             }
         }
         /* query hit, query nodes */
@@ -97,15 +97,15 @@ public class FacetQueryHitCountCollector {
             /* evaluate query subset */
             querySet.or(subSet);
             /* hits in all documents from this subquery */
-            node.setProperty(KEY_FACET_ROOT_COUNT, querySet.cardinality());
+            node.set(KEY_FACET_ROOT_COUNT, querySet.cardinality());
             /* hits for the query with view to the rootquery */
             subSet.and(rootSet);
-            node.setProperty(KEY_FACET_COUNT, subSet.cardinality());
+            node.set(KEY_FACET_COUNT, subSet.cardinality());
         }
         /* add to levelset */
         if (node.getParent() instanceof OGroup) {
             OGroup parent = (OGroup) node.getParent();
-            LongBitSet parentSet = parent.getProperty(KEY_BITSET);
+            LongBitSet parentSet = parent.get(KEY_BITSET);
             /* clear */
             if (first) {
                 parentSet = clear(parent, subSet.length());
@@ -116,26 +116,26 @@ public class FacetQueryHitCountCollector {
         /* after all, set parent name - sum */
         if (last) {
             OGroup parent = (OGroup) node.getParent();
-            if (parent.containsProperty(KEY_BITSET)) {
-                parent.setProperty(KEY_FACET_COUNT,
-                        parent.getProperty(KEY_BITSET).cardinality());
+            if (parent.has(KEY_BITSET)) {
+                parent.set(KEY_FACET_COUNT,
+                        parent.get(KEY_BITSET).cardinality());
             }
         }
     }
 
     private LongBitSet clear(OntologyNode node, long newSize) {
         LongBitSet querySet;
-        if (node.containsProperty(KEY_BITSET)) {
-            querySet = node.getProperty(KEY_BITSET);
+        if (node.has(KEY_BITSET)) {
+            querySet = node.get(KEY_BITSET);
             /* not same size, recreate query bitSet */
             if (querySet.length()!= subSet.length()) {
-                node.setProperty(KEY_BITSET, querySet = new LongBitSet(newSize));
+                node.set(KEY_BITSET, querySet = new LongBitSet(newSize));
             } else {
                 querySet.clear(0, querySet.length());
             }
         } else {
             /* not contained, create */
-            node.setProperty(KEY_BITSET, querySet = new LongBitSet(newSize));
+            node.set(KEY_BITSET, querySet = new LongBitSet(newSize));
         }
         return querySet;
     }

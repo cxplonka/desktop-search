@@ -40,15 +40,15 @@ public final class TreeExpansionState {
             AbstractOMutableTreeNode child = (AbstractOMutableTreeNode) node.getChildAt(i);
             TreePath path = new TreePath(child.getPath());
             if (!model.isLeaf(child) && tree.isExpanded(path)) {
-                child.getUserObject().setProperty(TREE_NODE_EXPANDED, true);
+                child.getUserObject().set(TREE_NODE_EXPANDED, true);
             } else {
-                child.getUserObject().removeProperty(TREE_NODE_EXPANDED);
+                child.getUserObject().remove(TREE_NODE_EXPANDED);
             }
             /* is checked */
             if (cmodel.isPathSelected(path, true)) {
-                child.getUserObject().setProperty(TREE_NODE_CHECKED, true);
+                child.getUserObject().set(TREE_NODE_CHECKED, true);
             } else {
-                child.getUserObject().removeProperty(TREE_NODE_CHECKED);
+                child.getUserObject().remove(TREE_NODE_CHECKED);
             }
             /* depther */
             storeTreeStates(model, cmodel, child);
@@ -60,11 +60,11 @@ public final class TreeExpansionState {
             AbstractOMutableTreeNode child = (AbstractOMutableTreeNode) node.getChildAt(i);
             TreePath path = new TreePath(child.getPath());
             /* check */
-            if (child.getUserObject().getProperty(TREE_NODE_CHECKED)) {                
+            if (child.getUserObject().get(TREE_NODE_CHECKED)) {                
                 paths.add(path);
             }
             /* expand */
-            if (child.getUserObject().getProperty(TREE_NODE_EXPANDED)) {
+            if (child.getUserObject().get(TREE_NODE_EXPANDED)) {
                 tree.expandPath(path);                
             }
             /* depther */

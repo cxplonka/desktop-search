@@ -20,7 +20,7 @@ public class ListenTreeNode<T extends OntologyNode> extends DefaultOntologyTreeN
     }
 
     protected void initNode() {
-        setChecked(getUserObject().getProperty(TREE_NODE_CHECKED));
+        setChecked(getUserObject().get(TREE_NODE_CHECKED));
         /* */
         int size = getUserObject().getNodeCount();
         for (int i = 0; i < size; i++) {
@@ -32,11 +32,11 @@ public class ListenTreeNode<T extends OntologyNode> extends DefaultOntologyTreeN
     public void setChecked(boolean value) {
         super.setChecked(value);
         /* redirect to the model, event will occur on the */
-        getUserObject().setProperty(TREE_NODE_CHECKED, value);
+        getUserObject().set(TREE_NODE_CHECKED, value);
     }
 
     @Override
     public boolean isChecked() {
-        return getUserObject().getProperty(TREE_NODE_CHECKED);
+        return getUserObject().get(TREE_NODE_CHECKED);
     }
 }

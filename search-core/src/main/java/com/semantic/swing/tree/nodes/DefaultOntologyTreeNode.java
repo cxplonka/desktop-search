@@ -75,7 +75,7 @@ public class DefaultOntologyTreeNode<T extends OntologyNode> extends AbstractOMu
     private static <T> void applyProperty(OntologyNode node, IPropertyKey<T> key, T value) {
         /* only modify children nodes */
         for (int i = 0; i < node.getNodeCount(); i++) {
-            node.getChildAt(i).setProperty(key, value);
+            node.getChildAt(i).set(key, value);
             applyProperty(node.getChildAt(i), key, value);
         }        
     }
@@ -98,7 +98,7 @@ public class DefaultOntologyTreeNode<T extends OntologyNode> extends AbstractOMu
                 getUserObject().setForwardPropertyChange(true);
             }
             /* set own state */
-            getUserObject().setProperty(IQueryGenerator.BOOLEAN_CLAUSE,
+            getUserObject().set(IQueryGenerator.BOOLEAN_CLAUSE,
                     IQueryGenerator.CLAUSE.OR);
         }
     }
@@ -121,7 +121,7 @@ public class DefaultOntologyTreeNode<T extends OntologyNode> extends AbstractOMu
                 getUserObject().setForwardPropertyChange(true);
             }
             /* set own state */
-            getUserObject().setProperty(IQueryGenerator.BOOLEAN_CLAUSE,
+            getUserObject().set(IQueryGenerator.BOOLEAN_CLAUSE,
                     IQueryGenerator.CLAUSE.NOT);
         }
     }

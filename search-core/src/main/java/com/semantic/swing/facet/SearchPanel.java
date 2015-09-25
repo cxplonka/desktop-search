@@ -163,7 +163,7 @@ public class SearchPanel extends javax.swing.JPanel implements IQueryBuilder {
     }
 
     private void handleFacet(QueryResultEvent event) {
-        IndexManager lucene = ApplicationContext.instance().getProperty(
+        IndexManager lucene = ApplicationContext.instance().get(
                 IndexManager.LUCENE_MANAGER);
         IndexSearcher searcher = event.getCurrentSearcher();
         /* facet collector */

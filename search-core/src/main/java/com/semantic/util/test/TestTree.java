@@ -41,7 +41,7 @@ public class TestTree extends JFrame {
         model.addNode(new OntologyNode("2"));
         /* same instance, different wrapper */
         OntologyNode same = new OntologyNode("same");
-        same.setProperty(TreeExpansionState.TREE_NODE_CHECKED, true);
+        same.set(TreeExpansionState.TREE_NODE_CHECKED, true);
         model.addNode(same);
         model.addNode(new OntologyNode("3"));
         model.addNode(same);

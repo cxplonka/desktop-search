@@ -59,7 +59,7 @@ public class ODirectoryTreeNode extends ONodeTreeNode<ODirectoryNode> {
         @Override
         public void actionPerformed(ActionEvent ae) {
             /* start indexing */
-            IndexManager lucene = ApplicationContext.instance().getProperty(
+            IndexManager lucene = ApplicationContext.instance().get(
                     IndexManager.LUCENE_MANAGER);
             /* push to task service */
             lucene.getTaskService().submit(new LuceneIndexWriteTask(

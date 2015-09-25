@@ -124,7 +124,7 @@ public class SemanticControlPanel extends javax.swing.JPanel implements GenericE
 
     @Override
     public void handleEvent(QueryResultEvent event) {
-        OModel model = ApplicationContext.instance().getProperty(ApplicationContext.MODEL);
+        OModel model = ApplicationContext.instance().get(ApplicationContext.MODEL);
         IndexSearcher searcher = event.getCurrentSearcher();
         /* facet searching */
         FacetQueryHitCountCollector counter = new FacetQueryHitCountCollector(searcher, event.getQuery());

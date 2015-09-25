@@ -12,6 +12,7 @@ import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
 
 /**
+ * use as field "_all"
  *
  * @author Christian
  */

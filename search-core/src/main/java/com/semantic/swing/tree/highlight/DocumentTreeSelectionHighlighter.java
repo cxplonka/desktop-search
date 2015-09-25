@@ -56,7 +56,7 @@ public class DocumentTreeSelectionHighlighter implements ListSelectionListener {
                 docIDs = new int[0];
             }
             /* evaluate model tree */
-            OModel model = ApplicationContext.instance().getProperty(ApplicationContext.MODEL);
+            OModel model = ApplicationContext.instance().get(ApplicationContext.MODEL);
             evaluate(model, docIDs);
             /* repaint */
             tree.repaint();
@@ -69,13 +69,13 @@ public class DocumentTreeSelectionHighlighter implements ListSelectionListener {
             evaluate(node.getChildAt(i), docIDs);
         }
         /* query hit */
-        if (node.containsProperty(FacetQueryHitCountCollector.KEY_BITSET)) {
-            LongBitSet querySet = node.getProperty(FacetQueryHitCountCollector.KEY_BITSET);
-            node.setProperty(AbstractOMutableTreeNode.KEY_NODE_HIGHLIGHTED, false);
+        if (node.has(FacetQueryHitCountCollector.KEY_BITSET)) {
+            LongBitSet querySet = node.get(FacetQueryHitCountCollector.KEY_BITSET);
+            node.set(AbstractOMutableTreeNode.KEY_NODE_HIGHLIGHTED, false);
             for (int id : docIDs) {
                 /* if the document is hit, highlight the node */
                 if (querySet.get(id)) {
-                    node.setProperty(AbstractOMutableTreeNode.KEY_NODE_HIGHLIGHTED, true);
+                    node.set(AbstractOMutableTreeNode.KEY_NODE_HIGHLIGHTED, true);
                 }
             }
         }

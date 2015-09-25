@@ -29,7 +29,7 @@ public class LuceneIndexWriteTask implements Runnable {
 
     public LuceneIndexWriteTask(File... sources) {
         this.sources = sources;
-        lucene = ApplicationContext.instance().getProperty(IndexManager.LUCENE_MANAGER);
+        lucene = ApplicationContext.instance().get(IndexManager.LUCENE_MANAGER);
     }
 
     @Override

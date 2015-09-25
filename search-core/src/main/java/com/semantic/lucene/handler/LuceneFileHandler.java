@@ -68,7 +68,7 @@ public abstract class LuceneFileHandler {
             MIME_MAP.addMimeTypes(type);
         }
         /* load all field definitions */
-        PlugInManager mng = instance().getProperty(PLUGIN_MANAGER);
+        PlugInManager mng = instance().get(PLUGIN_MANAGER);
         for (IFieldProperty def : mng.allInstances(IFieldProperty.class)) {
             repository.put(def.getName(), def);
         }

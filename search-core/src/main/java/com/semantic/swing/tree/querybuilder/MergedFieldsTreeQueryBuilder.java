@@ -90,7 +90,7 @@ public class MergedFieldsTreeQueryBuilder implements IQueryBuilder {
         /* must be selected and an instance from iquerygenerator */
         if (smodel.isPathSelected(new TreePath(node.getPath()), true)
                 && node.getUserObject() instanceof IQueryGenerator
-                && node.getUserObject().getProperty(IQueryGenerator.BOOLEAN_CLAUSE).equals(clause)) {
+                && node.getUserObject().get(IQueryGenerator.BOOLEAN_CLAUSE).equals(clause)) {
             IQueryGenerator gen = (IQueryGenerator) node.getUserObject();
             /* collect */
             fields.put(gen.getLuceneField(), node.getUserObject());

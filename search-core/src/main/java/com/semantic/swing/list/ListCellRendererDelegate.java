@@ -28,7 +28,7 @@ public class ListCellRendererDelegate implements ListCellRenderer {
     public ListCellRendererDelegate() {
         /* load delegates */
         ApplicationContext ctx = ApplicationContext.instance();
-        PlugInManager plug = ctx.getProperty(ApplicationContext.PLUGIN_MANAGER);
+        PlugInManager plug = ctx.get(ApplicationContext.PLUGIN_MANAGER);
         for (MimeTypeListCellRenderer renderer : plug.allInstances(MimeTypeListCellRenderer.class)) {
             registry.put(renderer.getType(), renderer);
         }

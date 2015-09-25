@@ -52,7 +52,7 @@ public class FieldsTreeQueryBuilder implements IQueryBuilder {
             BooleanQuery subQuery = new BooleanQuery();
             for (OntologyNode queryNode : entry.getValue()) {
                 IQueryGenerator query = (IQueryGenerator) queryNode;
-                switch (queryNode.getProperty(IQueryGenerator.BOOLEAN_CLAUSE)) {
+                switch (queryNode.get(IQueryGenerator.BOOLEAN_CLAUSE)) {
                     case AND:
                         subQuery.add(query.createQuery(), BooleanClause.Occur.MUST);
                         break;
