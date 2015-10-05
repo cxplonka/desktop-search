@@ -1,0 +1,22 @@
+apply plugin: 'com.bmuschko.izpack'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-izpack-plugin:2.1'
+    }
+}
+
+dependencies {
+    izpack 'org.codehaus.izpack:izpack-standalone-compiler:4.3.5'
+}
+
+izpack {
+    baseDir = file(".")
+    installFile = file('izpack/installer.xml')
+    outputFile = file("$buildDir/distributions/${project.name}-${version}-installer.jar")
+    compression = 'deflate'
+    compressionLevel = 9
+}

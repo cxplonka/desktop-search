@@ -1,9 +1,3 @@
-apply plugin: 'java'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     compile 'net.sf.trove4j:trove4j:3.0.3'
     compile 'org.apache.sanselan:sanselan:0.97-incubator'

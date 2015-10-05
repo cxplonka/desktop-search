@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<shortcuts>
+    <skipIfNotSupported />
+    <programGroup defaultName="iMagine" location="applications"/>      
+    <shortcut
+     name="iMagine"
+     programGroup="yes"
+     desktop="yes"
+     applications="no"
+     startMenu="no"
+     startup="no"
+     workingDirectory="$INSTALL_PATH/bin"
+     target="$JAVA_HOME/bin/javaw.exe"     
+     commandLine="-cp ./*;./lib/*; -Xmx512m com.semantic.ApplicationContext"
+     description="iMagine">     
+        <createForPack name="iMagine"/>
+    </shortcut>
+
+    <shortcut
+     name="iMagine Uninstaller"
+     programGroup="yes"
+     desktop="no"
+     applications="no"
+     startMenu="no"
+     startup="no"
+     target="$INSTALL_PATH\Uninstaller\uninstaller.jar"     
+     commandLine=""
+	 iconFile="%SystemRoot%\system32\SHELL32.dll"
+     iconIndex="31" 
+     description="Uninstall iMagine">     
+        <createForPack name="iMagine" />
+    </shortcut>   
+</shortcuts>

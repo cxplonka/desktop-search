@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<shortcuts>
+    <programGroup defaultName="iMagine" location="applications"/>
+
+    <shortcut
+        name="iMagine"
+        programGroup="yes"
+        desktop="yes"
+        applications="no"
+        startMenu="yes"
+        startup="no"
+        target=""
+        workingDirectory="$INSTALL_PATH/bin"
+        commandLine="java -cp ./*:./lib/* -Xmx512m com.semantic.ApplicationContext"
+        initialState="noShow"
+        iconIndex="0"
+        url=""
+        type="Application"
+        encoding="UTF-8"
+        KdeSubstUID="true"
+        KdeUsername="root"
+        createForAll="true"
+        description="iMagine">
+        <createForPack name="iMagine"/>
+    </shortcut>
+
+    <shortcut
+        name="iMagine Uninstaller"
+        programGroup="yes"
+        desktop="no"
+        applications="no"
+        startMenu="yes"
+        startup="no"
+        target="java"
+        commandLine="-jar $INSTALL_PATH/Uninstaller/uninstaller.jar"
+        initialState="noShow"
+        iconFile="trashcan_full"
+        iconIndex="0"
+        workingDirectory=""
+        type="Application"
+        encoding="UTF-8"
+        KdeSubstUID="true"
+        KdeUsername="root"
+        createForAll="false"
+        TryExec="java -jar $INSTALL_PATH/Uninstaller/uninstaller.jar"
+        description="Uninstall iMagine">
+        <createForPack name="iMagine"/>
+    </shortcut>
+</shortcuts>

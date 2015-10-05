@@ -5,10 +5,14 @@ allprojects {
     apply plugin: 'java'
     group = 'com.semantic'
     version = '1.0'
+    
+    repositories {
+        mavenCentral()
+    }
 }
 
-repositories {
-    mavenCentral()
+subprojects {
+    apply plugin: "java"
 }
 
 mainClassName = "com.semantic.ApplicationContext"
@@ -17,4 +21,5 @@ dependencies {
     compile project('search-core')
     compile project('search-handler-tika')
     compile project('search-view-worldwind')
+    compile project('search-installer')
 }

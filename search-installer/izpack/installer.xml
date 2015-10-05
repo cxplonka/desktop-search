@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+
+<installation version="1.0">
+    <info>
+        <appname>iMagine</appname>
+        <appversion>...</appversion>
+        <authors>
+            <author name="Christian Plonka" email="cplonka@transinsight.com"/>
+        </authors>
+        <url>http://www.transinsight.com</url>
+        <javaversion>1.6</javaversion>
+        <summarylogfilepath>$INSTALL_PATH/installinfo/summary.htm</summarylogfilepath>
+        <pack200/>
+    </info>
+    <!-- configurations for the look and feel of the installer -->
+    <guiprefs width="640" height="480" resizable="no">
+        <modifier key="useHeadingPanel" value="yes"/>
+        <modifier key="headingImageOnLeft" value="yes"/>
+        <modifier key="headingLineCount" value="1"/>
+        <modifier key="headingFontSize" value="1.5"/>
+        <modifier key="headingBackgroundColor" value="0x00ffffff"/>
+        <modifier key="headingPanelCounter" value="text"/>
+        <modifier key="headingPanelCounterPos" value="inHeading"/>
+    </guiprefs>
+
+    <variables>
+        <variable name="DesktopShortcutCheckboxEnabled" value="true"/>
+    </variables>
+
+    <locale>
+        <langpack iso3="deu"/>
+        <langpack iso3="eng"/>
+    </locale>
+
+    <resources>
+        <res id="Installer.image" src=""/>
+        <!-- resource package for i18n 
+        <res id="packsLang.xml_eng" src="./i18n/packsLang.xml_eng"/>
+        <res id="packsLang.xml_deu" src="./i18n/packsLang.xml_deu"/>
+        -->
+        <res src="./izpack/Licence.txt" id="LicencePanel.licence"/>
+        <res src="./izpack/win_shortcuts.xml" id="shortcutSpec.xml"/>
+        <res src="./izpack/unix_shortcuts.xml" id="Unix_shortcutSpec.xml"/>
+    </resources>
+
+    <panels>
+        <panel classname="CheckedHelloPanel" id="hellopanel"/>
+        <panel classname="LicencePanel" id="licensepanel"/>
+        <panel classname="TargetPanel" id="targetpanel"/>
+        <panel classname="TreePacksPanel" id="packspanel"/>
+        <panel classname="SummaryPanel" id="summarypanel"/>
+        <panel classname="InstallPanel" id="installpanel"/>
+        <panel classname="ShortcutPanel" id="shortcutpanel"/>
+        <panel classname="SimpleFinishPanel" id="finishpanel"/>
+    </panels>
+
+    <packs>
+        <pack name="iMagine" required="yes">
+            <description>iMagine - Required Files</description>
+            <fileset dir="./../search-core/build/libs/" targetdir="$INSTALL_PATH/bin"/>
+        </pack>
+
+        <pack name="Dependencies" parent="iMagine" required="yes">
+            <description>Dependencies</description>
+            <!-- <fileset dir="./../dist/lib" targetdir="$INSTALL_PATH/bin/lib" defaultexcludes="yes"/> -->
+        </pack>
+    </packs>
+
+    <native type="izpack" name="ShellLink.dll">
+        <os family="windows"/>
+    </native>
+    <native type="izpack" name="ShellLink_x64.dll">
+        <os family="windows"/>
+    </native>
+</installation>

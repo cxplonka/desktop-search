@@ -1,10 +1,4 @@
-apply plugin: 'java'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    compile project(':search-core')    
+    compile project(':search-core')
     compile 'org.apache.tika:tika-app:1.10'
 }
