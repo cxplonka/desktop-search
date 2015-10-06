@@ -3,6 +3,7 @@ apply plugin: 'application'
 
 allprojects {
     apply plugin: 'java'
+    
     group = 'com.semantic'
     version = '1.0'
     
@@ -12,10 +13,26 @@ allprojects {
 }
 
 subprojects {
-    apply plugin: "java"
+    // define configurations property for subprojects dependencies export
+    configurations {
+        publish
+        compile.extendsFrom publish
+    }
+    // copy all libraries to folder
+    task copyToLib(type: Copy) {
+        into "$buildDir/output/lib"
+        from configurations.publish
+    }
 }
 
 mainClassName = "com.semantic.ApplicationContext"
+
+// prepare subprojects for release
+task release() {
+    dependsOn subprojects.build
+    dependsOn subprojects.copyToLib
+    dependsOn(":search-installer:izPackCreateInstaller")
+}
 
 dependencies {
     compile project('search-core')

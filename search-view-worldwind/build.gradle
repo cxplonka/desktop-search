@@ -4,4 +4,9 @@ dependencies {
     compile fileTree(dir: 'libraries', include: ['*.jar'])
     compile fileTree(dir: 'libraries/java3d', include: ['*.jar'])
     compile fileTree(dir: 'libraries/jogl', include: ['*.jar'])
+    
+    // plugin dependencies
+    publish fileTree(dir: 'libraries', include: ['*.jar'])
+    publish fileTree(dir: 'libraries/java3d', include: ['*.jar'])
+    publish fileTree(dir: 'libraries/jogl', include: ['*.jar'])
 }
