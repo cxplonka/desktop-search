@@ -75,6 +75,7 @@ public class SearchPanel extends javax.swing.JPanel implements IQueryBuilder {
 
     static {
         // change indexing for lucene 5 http://stackoverflow.com/questions/31451111/lucene-5-sort-problems-uninvertedreader-and-docvalues
+        // http://stackoverflow.com/questions/29695307/sortiing-string-field-alphabetically-in-lucene-5-0
         SORT_BY.put("last modified", new Sort(new SortField(LastModifiedField.NAME,
                 SortField.Type.LONG, true)));
         SORT_BY.put("file size", new Sort(new SortField(SizeField.NAME,

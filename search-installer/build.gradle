@@ -16,7 +16,7 @@ dependencies {
 izpack {
     baseDir = file(".")
     installFile = file('izpack/installer.xml')
-    outputFile = file("$buildDir/distributions/${project.name}-${version}-installer.jar")
+    outputFile = file("$buildDir/distributions/${project.name}-${version}.jar")
     compression = 'deflate'
     compressionLevel = 9
 }

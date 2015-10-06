@@ -5,13 +5,13 @@
         <appname>iMagine</appname>
         <appversion>...</appversion>
         <authors>
-            <author name="Christian Plonka" email="cplonka@transinsight.com"/>
-        </authors>
-        <url>http://www.transinsight.com</url>
+            <author name="Christian Plonka" email="cplonka81@gmail.com"/>
+        </authors>        
         <javaversion>1.6</javaversion>
         <summarylogfilepath>$INSTALL_PATH/installinfo/summary.htm</summarylogfilepath>
         <pack200/>
     </info>
+    
     <!-- configurations for the look and feel of the installer -->
     <guiprefs width="640" height="480" resizable="no">
         <modifier key="useHeadingPanel" value="yes"/>
@@ -58,6 +58,11 @@
         <pack name="iMagine" required="yes">
             <description>iMagine - Required Files</description>
             <fileset dir="./../search-core/build/libs/" targetdir="$INSTALL_PATH/bin"/>
+            <fileset dir="./../search-core/build/output/lib/" targetdir="$INSTALL_PATH/bin/lib"/>
+            <!-- clean up directories before install -->
+            <updatecheck>
+                <include name="bin/**"/>
+            </updatecheck> 
         </pack>
 
         <pack name="Dependencies" parent="iMagine" required="yes">
