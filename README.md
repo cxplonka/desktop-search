@@ -1,4 +1,4 @@
-# desktop-search
+# desktop-search - [![Build Status](https://travis-ci.org/cxplonka/desktop-search.svg?branch=master)](https://travis-ci.org/cxplonka/desktop-search)
 
 Please note that this an experimental program to test different kinds of information retrieval
 and handling of different kind of data.
