@@ -1,5 +1,11 @@
 # desktop-search - [![Build Status](https://travis-ci.org/cxplonka/desktop-search.svg?branch=master)](https://travis-ci.org/cxplonka/desktop-search)
 
+A powerful, hierarchical desktop search engine based on swing and lucene.​​
+* Query-tree based search
+* Full control over search results 
+* Different views for the result (globe rendering, list and grid view)
+* Support all kind of documents and images
+
 Please note that this an experimental program to test different kinds of information retrieval
 and handling of different kind of data.
 

@@ -1,6 +1,6 @@
 language: java
 jdk:
   - oraclejdk8  
-# script:
+# script:    # izpack: skipping 34 bytes of LineNumberTable attribute in com/semantic/swing
 #  - gradle release
  
