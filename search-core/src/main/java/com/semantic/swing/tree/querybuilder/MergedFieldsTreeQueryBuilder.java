@@ -43,7 +43,8 @@ public class MergedFieldsTreeQueryBuilder implements IQueryBuilder {
     private Query buildQuery(CheckBoxTreeSelectionModel smodel) {
         SemanticTreeModel treeModel = (SemanticTreeModel) tree.getModel();
         /* build curQuery, nodes will be call children */
-        BooleanQuery rootQuery = new BooleanQuery();
+//        BooleanQuery rootQuery = new BooleanQuery();
+        BooleanQuery.Builder rootQuery = new BooleanQuery.Builder();
         /* evaluate tree */
         MultiMap<String, OntologyNode> andFields = new MultiMap<String, OntologyNode>();
         MultiMap<String, OntologyNode> orFields = new MultiMap<String, OntologyNode>();
@@ -55,34 +56,34 @@ public class MergedFieldsTreeQueryBuilder implements IQueryBuilder {
         /* */
         for (Map.Entry<String, Collection<OntologyNode>> entry : andFields.entrySet()) {
             /* collect query's */
-            BooleanQuery subQuery = new BooleanQuery();
+            BooleanQuery.Builder subQuery = new BooleanQuery.Builder();
             for (OntologyNode queryNode : entry.getValue()) {
                 IQueryGenerator query = (IQueryGenerator) queryNode;
                 subQuery.add(query.createQuery(), Occur.SHOULD);
             }
-            rootQuery.add(subQuery, Occur.MUST);
+            rootQuery.add(subQuery.build(), Occur.MUST);
         }
         /* */
         for (Map.Entry<String, Collection<OntologyNode>> entry : orFields.entrySet()) {
             /* collect query's */
-            BooleanQuery subQuery = new BooleanQuery();
+            BooleanQuery.Builder subQuery = new BooleanQuery.Builder();
             for (OntologyNode queryNode : entry.getValue()) {
                 IQueryGenerator query = (IQueryGenerator) queryNode;
                 subQuery.add(query.createQuery(), Occur.SHOULD);
             }
-            rootQuery.add(subQuery, Occur.MUST);
+            rootQuery.add(subQuery.build(), Occur.MUST);
         }
         /* */
         for (Map.Entry<String, Collection<OntologyNode>> entry : notFields.entrySet()) {
             /* collect query's */
-            BooleanQuery subQuery = new BooleanQuery();
+            BooleanQuery.Builder subQuery = new BooleanQuery.Builder();
             for (OntologyNode queryNode : entry.getValue()) {
                 IQueryGenerator query = (IQueryGenerator) queryNode;
                 subQuery.add(query.createQuery(), Occur.SHOULD);
             }
-            rootQuery.add(subQuery, Occur.MUST_NOT);
+            rootQuery.add(subQuery.build(), Occur.MUST_NOT);
         }
-        return rootQuery;
+        return rootQuery.build();
     }
 
     private void collectFields(AbstractOMutableTreeNode node, MultiMap<String, OntologyNode> fields,

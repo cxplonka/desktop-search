@@ -8,8 +8,7 @@ package com.semantic.lucene.fields.image;
 
 import com.semantic.lucene.util.IFieldProperty;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.FloatField;
+import org.apache.lucene.document.FloatPoint;
 
 /**
  * image aspect ration (width/height) (datatype - float)
@@ -31,6 +30,6 @@ public class AspectRatioField implements IFieldProperty<Float> {
 
     @Override
     public void add(Document doc, Float value) {
-        doc.add(new FloatField(getName(), value, Field.Store.YES));
+        doc.add(new FloatPoint(getName(), value));
     }
 }

@@ -43,13 +43,13 @@ public class FieldsTreeQueryBuilder implements IQueryBuilder {
     private Query buildQuery(CheckBoxTreeSelectionModel smodel) {
         SemanticTreeModel treeModel = (SemanticTreeModel) tree.getModel();
         /* build curQuery, nodes will be call children */
-        BooleanQuery rootQuery = new BooleanQuery();
+        BooleanQuery.Builder rootQuery = new BooleanQuery.Builder();
         /* evaulate tree */
         MultiMap<String, OntologyNode> fields = new MultiMap<String, OntologyNode>();
         collectFields(treeModel.getRoot(), fields, smodel);
         for (Map.Entry<String, Collection<OntologyNode>> entry : fields.entrySet()) {
             /* collect query's */
-            BooleanQuery subQuery = new BooleanQuery();
+            BooleanQuery.Builder subQuery = new BooleanQuery.Builder();
             for (OntologyNode queryNode : entry.getValue()) {
                 IQueryGenerator query = (IQueryGenerator) queryNode;
                 switch (queryNode.get(IQueryGenerator.BOOLEAN_CLAUSE)) {
@@ -64,9 +64,9 @@ public class FieldsTreeQueryBuilder implements IQueryBuilder {
                         break;
                 }
             }
-            rootQuery.add(subQuery, BooleanClause.Occur.MUST);
+            rootQuery.add(subQuery.build(), BooleanClause.Occur.MUST);
         }
-        return rootQuery;
+        return rootQuery.build();
     }
 
     private void collectFields(AbstractOMutableTreeNode node, MultiMap<String, OntologyNode> fields,

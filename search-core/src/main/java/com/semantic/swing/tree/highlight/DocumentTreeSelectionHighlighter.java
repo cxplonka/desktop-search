@@ -16,7 +16,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.document.IntField;
+import org.apache.lucene.document.IntPoint;
 import org.apache.lucene.util.LongBitSet;
 
 /**
@@ -48,7 +48,7 @@ public class DocumentTreeSelectionHighlighter implements ListSelectionListener {
                     if (selectionModel.isSelectedIndex(i)) {
                         /* fetch document */
                         Document doc = documents.get(i);
-                        docIDs[i - min] = ((IntField) doc.getField(
+                        docIDs[i - min] = ((IntPoint) doc.getField(
                                 LazyDocumentListService.FIELD_SESSION_DOCID)).numericValue().intValue();
                     }
                 }

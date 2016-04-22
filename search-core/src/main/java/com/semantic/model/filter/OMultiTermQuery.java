@@ -25,11 +25,11 @@ public abstract class OMultiTermQuery extends OntologyNode implements IQueryGene
     @Override
     public Query createQuery() {
         if (query == null) {
-            BooleanQuery root = new BooleanQuery();
+            BooleanQuery.Builder root = new BooleanQuery.Builder();
             for (String term : getTerms()) {
                 root.add(new TermQuery(new Term(getLuceneField(), term)), BooleanClause.Occur.SHOULD);
             }
-            query = root;
+            query = root.build();
         }
         return query;
     }

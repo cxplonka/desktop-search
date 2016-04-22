@@ -23,14 +23,14 @@ public class QueryPipeline {
     }    
     
     public Query generateQuery() {
-        BooleanQuery ret = new BooleanQuery();
+        BooleanQuery.Builder ret = new BooleanQuery.Builder();
         for (IQueryBuilder builder : builders) {
             Query query = builder.createQuery();
             if (query != null) {
                 ret.add(query, builder.getCondition());
             }
         }
-        return currentQuery = ret;
+        return currentQuery = ret.build();
     }
 
     public void addQueryBuilder(IQueryBuilder builder) {

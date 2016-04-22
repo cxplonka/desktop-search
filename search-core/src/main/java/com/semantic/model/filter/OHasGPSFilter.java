@@ -8,9 +8,9 @@ import com.semantic.lucene.fields.image.LatField;
 import com.semantic.lucene.fields.image.LonField;
 import com.semantic.model.IQueryGenerator;
 import com.semantic.model.OntologyNode;
+import org.apache.lucene.document.DoublePoint;
 import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.lucene.search.BooleanQuery;
-import org.apache.lucene.search.NumericRangeQuery;
 import org.apache.lucene.search.Query;
 
 /**
@@ -32,12 +32,12 @@ public class OHasGPSFilter extends OntologyNode implements IQueryGenerator {
             /* degree offset */
             double offset = 180;
             /* root query */
-            BooleanQuery root = new BooleanQuery();
-            root.add(NumericRangeQuery.newDoubleRange(LatField.NAME,
-                    0 - offset, 0 + offset, true, true), Occur.MUST);
-            root.add(NumericRangeQuery.newDoubleRange(LonField.NAME,
-                    0 - offset, 0 + offset, true, true), Occur.MUST);
-            query = root;
+            BooleanQuery.Builder root = new BooleanQuery.Builder();
+            root.add(DoublePoint.newRangeQuery(LatField.NAME,
+                    0 - offset, 0 + offset), Occur.MUST);
+            root.add(DoublePoint.newRangeQuery(LonField.NAME,
+                    0 - offset, 0 + offset), Occur.MUST);
+            query = root.build();
         }
         return query;
     }

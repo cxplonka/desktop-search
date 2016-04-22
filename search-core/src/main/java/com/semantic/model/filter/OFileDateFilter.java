@@ -10,7 +10,7 @@ import com.semantic.model.OntologyNode;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.xml.bind.annotation.XmlAttribute;
-import org.apache.lucene.search.NumericRangeQuery;
+import org.apache.lucene.document.LongPoint;
 import org.apache.lucene.search.Query;
 
 /**
@@ -40,8 +40,8 @@ public class OFileDateFilter extends OntologyNode implements IQueryGenerator {
     @Override
     public Query createQuery() {
         if (query == null) {
-            query = NumericRangeQuery.newLongRange(getLuceneField(),
-                    fromDate.getTime(), toDate.getTime(), true, true);
+            query = LongPoint.newRangeQuery(getLuceneField(),
+                    fromDate.getTime(), toDate.getTime());
         }
         return query;
     }

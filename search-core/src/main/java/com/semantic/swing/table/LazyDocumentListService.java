@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
-import org.apache.lucene.document.IntField;
+import org.apache.lucene.document.IntPoint;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.TopDocs;
@@ -62,8 +62,9 @@ public class LazyDocumentListService implements LazyListService<Document> {
                 for (int i = startElement; i < endElement; i++) {
                     ret[i - startElement] = indexSearcher.doc(topDocs.scoreDocs[i].doc);
                     /* inject current docID for this search session */                    
-                    ret[i - startElement].add(new IntField(FIELD_SESSION_DOCID, 
-                            topDocs.scoreDocs[i].doc, Field.Store.NO));
+                    ret[i - startElement].add(new IntPoint(
+                            FIELD_SESSION_DOCID, 
+                            topDocs.scoreDocs[i].doc));
                 }
                 return ret;
             } catch (Exception ex) {
@@ -76,7 +77,7 @@ public class LazyDocumentListService implements LazyListService<Document> {
     protected void updateTopDocs(int maxDocs) {
         if (indexSearcher != null && maxDocs > 0) {
             try {
-                topDocs = indexSearcher.search(query, null, maxDocs, LuceneQueryTask.SORT);
+                topDocs = indexSearcher.search(query, maxDocs, LuceneQueryTask.SORT);
                 log.log(Level.FINE, String.format("updated topDocs cache up to [%s] documents", maxDocs));
             } catch (IOException ex) {
                 log.log(Level.WARNING, "can not execute query!", ex);

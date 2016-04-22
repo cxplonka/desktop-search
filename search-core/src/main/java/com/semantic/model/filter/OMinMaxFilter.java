@@ -9,7 +9,10 @@ import com.semantic.model.IQueryGenerator;
 import com.semantic.model.OntologyNode;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import org.apache.lucene.search.NumericRangeQuery;
+import org.apache.lucene.document.DoublePoint;
+import org.apache.lucene.document.FloatPoint;
+import org.apache.lucene.document.IntPoint;
+import org.apache.lucene.document.LongPoint;
 import org.apache.lucene.search.Query;
 
 /**
@@ -46,17 +49,17 @@ public abstract class OMinMaxFilter<T extends Number> extends OntologyNode imple
     public Query createQuery() {
         if (query == null) {
             if (Integer.class.equals(clazz)) {
-                query = NumericRangeQuery.newIntRange(getLuceneField(),
-                        minSize.intValue(), maxSize.intValue(), true, true);
+                query = IntPoint.newRangeQuery(getLuceneField(),
+                        minSize.intValue(), maxSize.intValue());
             } else if (Float.class.equals(clazz)) {
-                query = NumericRangeQuery.newFloatRange(getLuceneField(),
-                        minSize.floatValue(), maxSize.floatValue(), true, true);
+                query = FloatPoint.newRangeQuery(getLuceneField(),
+                        minSize.floatValue(), maxSize.floatValue());
             } else if (Long.class.equals(clazz)) {
-                query = NumericRangeQuery.newLongRange(getLuceneField(),
-                        minSize.longValue(), maxSize.longValue(), true, true);
+                query = LongPoint.newRangeQuery(getLuceneField(),
+                        minSize.longValue(), maxSize.longValue());
             } else if (Double.class.equals(clazz)) {
-                query = NumericRangeQuery.newDoubleRange(getLuceneField(),
-                        minSize.doubleValue(), maxSize.doubleValue(), true, true);
+                query = DoublePoint.newRangeQuery(getLuceneField(),
+                        minSize.doubleValue(), maxSize.doubleValue());
             } else {
                 throw new UnsupportedOperationException("not supported data type!");
             }

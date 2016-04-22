@@ -8,8 +8,7 @@ package com.semantic.lucene.fields.image;
 
 import com.semantic.lucene.util.IFieldProperty;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.IntField;
+import org.apache.lucene.document.IntPoint;
 
 /**
  * GPS field TAG_GPS_IMG_DIRECTION in degree (datatype - int)
@@ -31,6 +30,6 @@ public class GpsDirectionField implements IFieldProperty<Integer> {
 
     @Override
     public void add(Document doc, Integer value) {
-        doc.add(new IntField(getName(), value, Field.Store.YES));
+        doc.add(new IntPoint(getName(), value));
     }
 }

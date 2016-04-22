@@ -111,7 +111,7 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
                 taxoWriter.commit();
                 /* create new indexsearcher on updated index, problems with indexreader.reopen
                  * approach (new index, refresh) */
-                indexSearcher = new IndexSearcher(DirectoryReader.open(indexWriter, false));
+                indexSearcher = new IndexSearcher(DirectoryReader.open(indexWriter));
                 taxoReader = new DirectoryTaxonomyReader(taxoWriter);
                 needsUpdate = false;
             }

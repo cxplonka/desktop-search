@@ -8,8 +8,7 @@ package com.semantic.lucene.fields;
 
 import com.semantic.lucene.util.IFieldProperty;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.LongField;
+import org.apache.lucene.document.LongPoint;
 
 /**
  * last modification date (datatype - long) 
@@ -31,6 +30,6 @@ public class LastModifiedField implements IFieldProperty<Long> {
 
     @Override
     public void add(Document doc, Long value) {
-        doc.add(new LongField(getName(), value, Field.Store.YES));
+        doc.add(new LongPoint(getName(), value));
     }
 }

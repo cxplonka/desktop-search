@@ -12,7 +12,7 @@
         startup="no"
         target=""
         workingDirectory="$INSTALL_PATH/bin"
-        commandLine="java -cp ./*:./lib/* -Xmx512m com.semantic.ApplicationContext"
+        commandLine="java -cp ./*:./lib/* -Xmx1024m com.semantic.ApplicationContext"
         initialState="noShow"
         iconIndex="0"
         url=""

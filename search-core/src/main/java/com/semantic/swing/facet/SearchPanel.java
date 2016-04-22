@@ -228,7 +228,7 @@ public class SearchPanel extends javax.swing.JPanel implements IQueryBuilder {
 
     @Override
     public Query createQuery() {
-        BooleanQuery ret = null;
+        BooleanQuery.Builder ret = null;
         /* generate query - AND phrase query */
         StringBuilder buffer = new StringBuilder();
         for (int i = 0, size = listModel.getSize(); i < size; i++) {
@@ -247,13 +247,13 @@ public class SearchPanel extends javax.swing.JPanel implements IQueryBuilder {
                     new StandardAnalyzer());
             /* standard analyzed */
             try {
-                ret = new BooleanQuery();
+                ret = new BooleanQuery.Builder();
                 ret.add(parser.parse(buffer.toString()), BooleanClause.Occur.SHOULD);
             } catch (ParseException ex) {
                 Logger.getLogger(SearchPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return ret;
+        return ret != null ? ret.build() : null;
     }
 
     @Override

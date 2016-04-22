@@ -10,7 +10,7 @@ import com.semantic.model.IQueryGenerator;
 import com.semantic.model.OntologyNode;
 import java.util.Calendar;
 import javax.xml.bind.annotation.XmlAttribute;
-import org.apache.lucene.search.NumericRangeQuery;
+import org.apache.lucene.document.LongPoint;
 import org.apache.lucene.search.Query;
 
 /**
@@ -59,11 +59,10 @@ public class OFixedFileDateFilter extends OntologyNode implements IQueryGenerato
     public Query createQuery() {
         Calendar[] dates = generate(date);
         /* we dont cache query because of the dates */
-        return NumericRangeQuery.newLongRange(
+        return LongPoint.newRangeQuery(
                 getLuceneField(),
                 dates[0].getTimeInMillis(),
-                dates[1].getTimeInMillis(),
-                true, true);
+                dates[1].getTimeInMillis());
     }
 
     static Calendar[] generate(DATE date) {

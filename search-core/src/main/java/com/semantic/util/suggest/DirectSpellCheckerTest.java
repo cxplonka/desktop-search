@@ -54,7 +54,7 @@ public class DirectSpellCheckerTest extends JFrame {
         config.setRAMBufferSizeMB(64);
         IndexWriter indexWriter = new IndexWriter(index, config);
 
-        indexSearcher = new IndexSearcher(DirectoryReader.open(indexWriter, false));
+        indexSearcher = new IndexSearcher(DirectoryReader.open(indexWriter));
 
 //        DirectSpellChecker s = new DirectSpellChecker();
 //        SuggestWord[] words = s.suggestSimilar(new Term(TextLuceneFileHandler.FIELD_FILE_CONTENT.getField(), "chr"), 5, 

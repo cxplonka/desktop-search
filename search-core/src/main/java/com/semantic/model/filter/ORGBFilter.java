@@ -9,9 +9,9 @@ import com.semantic.model.IQueryGenerator;
 import com.semantic.model.OntologyNode;
 import java.util.Arrays;
 import javax.xml.bind.annotation.XmlAttribute;
+import org.apache.lucene.document.IntPoint;
 import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.lucene.search.BooleanQuery;
-import org.apache.lucene.search.NumericRangeQuery;
 import org.apache.lucene.search.Query;
 
 /**
@@ -41,13 +41,14 @@ public class ORGBFilter extends OntologyNode implements IQueryGenerator {
     public Query createQuery() {
         if (query == null) {
             /* root query */
-            BooleanQuery root = new BooleanQuery();
+            BooleanQuery.Builder root = new BooleanQuery.Builder();
             for (int i = 0; i < rgbVector.length; i++) {
-                root.add(NumericRangeQuery.newIntRange(
+                root.add(IntPoint.newRangeQuery(
                         getLuceneField() + i,
-                        rgbVector[i] - rangeRGB, rgbVector[i] + rangeRGB, true, true), Occur.MUST);
+                        rgbVector[i] - rangeRGB, rgbVector[i] + rangeRGB), 
+                        Occur.MUST);
             }
-            query = root;
+            query = root.build();
         }
         return query;
     }

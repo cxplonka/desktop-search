@@ -12,7 +12,7 @@
      startup="no"
      workingDirectory="$INSTALL_PATH/bin"
      target="$JAVA_HOME/bin/javaw.exe"     
-     commandLine="-cp ./*;./lib/*; -Xmx512m com.semantic.ApplicationContext"
+     commandLine="-cp ./*;./lib/*; -Xmx1024m com.semantic.ApplicationContext"
      description="iMagine">     
         <createForPack name="iMagine"/>
     </shortcut>

@@ -67,7 +67,12 @@
 
         <pack name="Dependencies" parent="iMagine" required="yes">
             <description>Dependencies</description>
-            <!-- <fileset dir="./../dist/lib" targetdir="$INSTALL_PATH/bin/lib" defaultexcludes="yes"/> -->
+            <!-- tika handler -->
+            <fileset dir="./../search-handler-tika/build/libs/" targetdir="$INSTALL_PATH/bin/lib"/>
+            <fileset dir="./../search-handler-tika/build/output/lib/" targetdir="$INSTALL_PATH/bin/lib"/>
+            <!-- tika handler -->
+            <fileset dir="./../search-view-worldwind/build/libs/" targetdir="$INSTALL_PATH/bin/lin"/>
+            <fileset dir="./../search-view-worldwind/build/output/lib/" targetdir="$INSTALL_PATH/bin/lib"/>
         </pack>
     </packs>
 

@@ -74,16 +74,16 @@ public class TopTermsResultView extends javax.swing.JPanel implements
 
     @Override
     public Query createQuery() {
-        BooleanQuery ret = null;
+        BooleanQuery.Builder ret = null;
         if (!listModel.isEmpty()) {
-            ret = new BooleanQuery();
+            ret = new BooleanQuery.Builder();
             for (int i = 0, size = listModel.size(); i < size; i++) {
                 TopTerm topTerm = (TopTerm) listModel.get(i);
                 ret.add(new TermQuery(new Term(
                         topTerm.getField(), topTerm.getTerm())), Occur.MUST);
             }
         }
-        return ret;
+        return ret.build();
     }
 
     @Override

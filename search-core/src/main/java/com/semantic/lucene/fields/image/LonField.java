@@ -8,8 +8,7 @@ package com.semantic.lucene.fields.image;
 
 import com.semantic.lucene.util.IFieldProperty;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.document.DoubleField;
-import org.apache.lucene.document.Field;
+import org.apache.lucene.document.DoublePoint;
 
 /**
  * GPS field TAG_GPS_LONGITUDE in decimal degree (datatype - double)
@@ -31,6 +30,6 @@ public class LonField implements IFieldProperty<Double> {
 
     @Override
     public void add(Document doc, Double value) {
-        doc.add(new DoubleField(getName(), value, Field.Store.YES));
+        doc.add(new DoublePoint(getName(), value));
     }
 }

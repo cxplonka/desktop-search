@@ -15,9 +15,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import org.apache.lucene.document.DoublePoint;
 import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.lucene.search.BooleanQuery;
-import org.apache.lucene.search.NumericRangeQuery;
 import org.apache.lucene.search.Query;
 
 /**
@@ -54,13 +54,13 @@ public class OGeoHashFilter extends OntologyNode implements IQueryGenerator {
     @Override
     public Query createQuery() {
         if (query == null) {
-            /* root query */
-            BooleanQuery root = new BooleanQuery();
-            root.add(NumericRangeQuery.newDoubleRange(LatField.NAME,
-                    southWestLat, northEastLat, true, true), Occur.MUST);
-            root.add(NumericRangeQuery.newDoubleRange(LonField.NAME,
-                    southWestLng, northEastLng, true, true), Occur.MUST);
-            query = root;
+            /* root query */            
+            BooleanQuery.Builder root = new BooleanQuery.Builder();
+            root.add(DoublePoint.newRangeQuery(LatField.NAME,
+                    southWestLat, northEastLat), Occur.MUST);
+            root.add(DoublePoint.newRangeQuery(LonField.NAME,
+                    southWestLng, northEastLng), Occur.MUST);
+            query = root.build();
         }
         return query;
     }

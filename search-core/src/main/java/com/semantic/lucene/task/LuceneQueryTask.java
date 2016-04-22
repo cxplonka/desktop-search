@@ -40,7 +40,7 @@ public class LuceneQueryTask extends SwingWorker<TopDocs, Object> {
         log.info(String.format("current search query: %s", query));
         searcher = lucene.getIndexSearcher();        
         /* index searcher - MulitCollector.wrap */
-        return searcher.search(query, null, maxHits, SORT);
+        return searcher.search(query, maxHits, SORT);
     }    
 
     @Override

@@ -10,6 +10,10 @@ buildscript {
 }
 
 dependencies {
+    compile project(':search-core')
+    compile project(':search-handler-tika')
+    compile project(':search-view-worldwind')    
+    
     izpack 'org.codehaus.izpack:izpack-standalone-compiler:4.3.5'
 }
 

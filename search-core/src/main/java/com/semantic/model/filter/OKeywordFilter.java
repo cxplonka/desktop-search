@@ -33,12 +33,12 @@ public class OKeywordFilter extends OntologyNode implements IQueryGenerator {
     @Override
     public Query createQuery() {
         if (query == null) {
-            BooleanQuery multiTermQuery = new BooleanQuery();
+            BooleanQuery.Builder root = new BooleanQuery.Builder();
             String[] terms = keyWord.trim().toLowerCase().split("\\s");
             for (String term : terms) {
-                multiTermQuery.add(new TermQuery(new Term(getLuceneField(), term)), BooleanClause.Occur.SHOULD);                
+                root.add(new TermQuery(new Term(getLuceneField(), term)), BooleanClause.Occur.SHOULD);                
             }
-            query = multiTermQuery;
+            query = root.build();
         }
         return query;
     }

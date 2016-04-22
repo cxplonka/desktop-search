@@ -7,8 +7,7 @@ package com.semantic.lucene.fields.image;
 
 import com.semantic.lucene.util.IFieldProperty;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.IntField;
+import org.apache.lucene.document.IntPoint;
 
 /**
  * image bits per pixel(without alpha channel) (datatype - int)
@@ -31,6 +30,6 @@ public class BitsPerPixelField implements IFieldProperty<Integer> {
 
     @Override
     public void add(Document doc, Integer value) {
-        doc.add(new IntField(getName(), value, Field.Store.YES));
+        doc.add(new IntPoint(getName(), value));
     }
 }

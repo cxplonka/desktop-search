@@ -136,7 +136,7 @@ public class ImageLuceneFileHandler extends LuceneFileHandler {
                 if (classifyImage) {
                     int[] v = ImageUtil.analyzeRGB(file);
                     for (int i = 0; i < v.length; i++) {
-                        doc.add(new IntField(COLORMEAN + i, v[i], Field.Store.YES));
+                        doc.add(new IntPoint(COLORMEAN + i, v[i]));
                     }
                 }
             } catch (Throwable e) {

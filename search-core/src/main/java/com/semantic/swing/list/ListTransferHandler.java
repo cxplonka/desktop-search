@@ -23,9 +23,8 @@ public class ListTransferHandler extends TransferHandler {
     protected Transferable createTransferable(JComponent c) {
         if (c instanceof JList) {
             JList list = (JList) c;
-            TransferableFile transferable = new TransferableFile();
-            Object[] selection = list.getSelectedValues();
-            for (Object select : selection) {
+            TransferableFile transferable = new TransferableFile();            
+            for (Object select : list.getSelectedValuesList()) {
                 if (select instanceof Document) {
                     Document doc = (Document) select;
                     transferable.addFile(new File(doc.get(FileNameField.NAME)));
