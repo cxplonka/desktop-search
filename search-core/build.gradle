@@ -1,19 +1,21 @@
+project.ext.luceneVersion = "6.0.0"
+
 dependencies {
     compile 'net.sf.trove4j:trove4j:3.0.3'
     compile 'org.apache.sanselan:sanselan:0.97-incubator'
     compile 'net.sf.jpathwatch:jpathwatch:0.95'
     compile 'org.swinglabs.swingx:swingx-all:1.6.5-1'
     
-    compile 'org.apache.lucene:lucene-core:6.0.0'
-    compile 'org.apache.lucene:lucene-facet:6.0.0'
-    compile 'org.apache.lucene:lucene-analyzers-common:6.0.0'
-    compile 'org.apache.lucene:lucene-memory:6.0.0'
-    compile 'org.apache.lucene:lucene-highlighter:6.0.0'
-    compile 'org.apache.lucene:lucene-misc:6.0.0'
-    compile 'org.apache.lucene:lucene-suggest:6.0.0'
-    compile 'org.apache.lucene:lucene-queryparser:6.0.0'
-    compile 'org.apache.lucene:lucene-queries:6.0.0'
-    compile 'org.apache.lucene:lucene-backward-codecs:6.0.0'
+    compile "org.apache.lucene:lucene-core:${luceneVersion}"
+    compile "org.apache.lucene:lucene-facet:${luceneVersion}"
+    compile "org.apache.lucene:lucene-analyzers-common:${luceneVersion}"
+    compile "org.apache.lucene:lucene-memory:${luceneVersion}"
+    compile "org.apache.lucene:lucene-highlighter:${luceneVersion}"
+    compile "org.apache.lucene:lucene-misc:${luceneVersion}"
+    compile "org.apache.lucene:lucene-suggest:${luceneVersion}"
+    compile "org.apache.lucene:lucene-queryparser:${luceneVersion}"
+    compile "org.apache.lucene:lucene-queries:${luceneVersion}"
+    compile "org.apache.lucene:lucene-backward-codecs:${luceneVersion}"
    
     compile fileTree(dir: 'libraries', include: ['*.jar'])
     compile fileTree(dir: 'libraries/swing', include: ['*.jar'])
@@ -25,16 +27,16 @@ dependencies {
     publish 'net.sf.jpathwatch:jpathwatch:0.95'
     publish 'org.swinglabs.swingx:swingx-all:1.6.5-1'
     
-    publish 'org.apache.lucene:lucene-core:6.0.0'
-    publish 'org.apache.lucene:lucene-facet:6.0.0'
-    publish 'org.apache.lucene:lucene-analyzers-common:6.0.0'
-    publish 'org.apache.lucene:lucene-memory:6.0.0'
-    publish 'org.apache.lucene:lucene-highlighter:6.0.0'
-    publish 'org.apache.lucene:lucene-misc:6.0.0'
-    publish 'org.apache.lucene:lucene-suggest:6.0.0'
-    publish 'org.apache.lucene:lucene-queryparser:6.0.0'
-    publish 'org.apache.lucene:lucene-queries:6.0.0'
-    publish 'org.apache.lucene:lucene-backward-codecs:6.0.0'
+    publish "org.apache.lucene:lucene-core:${luceneVersion}"
+    publish "org.apache.lucene:lucene-facet:${luceneVersion}"
+    publish "org.apache.lucene:lucene-analyzers-common:${luceneVersion}"
+    publish "org.apache.lucene:lucene-memory:${luceneVersion}"
+    publish "org.apache.lucene:lucene-highlighter:${luceneVersion}"
+    publish "org.apache.lucene:lucene-misc:${luceneVersion}"
+    publish "org.apache.lucene:lucene-suggest:${luceneVersion}"
+    publish "org.apache.lucene:lucene-queryparser:${luceneVersion}"
+    publish "org.apache.lucene:lucene-queries:${luceneVersion}"
+    publish "org.apache.lucene:lucene-backward-codecs:${luceneVersion}"
    
     publish fileTree(dir: 'libraries', include: ['*.jar'])
     publish fileTree(dir: 'libraries/swing', include: ['*.jar'])
