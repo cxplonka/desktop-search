@@ -13,6 +13,8 @@ and handling of different kind of data.
 
 ![](https://github.com/cxplonka/desktop-search/blob/master/screenshot1.png)
 
+Icons are taken from: http://franksouza183.deviantart.com/art/FS-Icons-Ubuntu-288407674
+
 ## License
 
 The MIT License (MIT)
