@@ -1,12 +1,19 @@
+project.ext.worldWindVersion = "2.0.0-986"
+project.ext.joglVersion = "2.1.5-01"
+
 dependencies {
     compile project(':search-core')    
     
-    compile fileTree(dir: 'libraries', include: ['*.jar'])
-    compile fileTree(dir: 'libraries/java3d', include: ['*.jar'])
-    compile fileTree(dir: 'libraries/jogl', include: ['*.jar'])
+    compile "gov.nasa:worldwind:${worldWindVersion}"
+    compile "gov.nasa:worldwindx:${worldWindVersion}"
+    
+    compile "org.jogamp.jogl:jogl-all:${joglVersion}"
+    compile "org.jogamp.gluegen:gluegen-rt-main:${joglVersion}"
     
     // plugin dependencies
-    publish fileTree(dir: 'libraries', include: ['*.jar'])
-    publish fileTree(dir: 'libraries/java3d', include: ['*.jar'])
-    publish fileTree(dir: 'libraries/jogl', include: ['*.jar'])
+    publish "gov.nasa:worldwind:${worldWindVersion}"
+    publish "gov.nasa:worldwindx:${worldWindVersion}"
+    
+    publish "org.jogamp.jogl:jogl-all:${joglVersion}"
+    publish "org.jogamp.gluegen:gluegen-rt-main:${joglVersion}"
 }

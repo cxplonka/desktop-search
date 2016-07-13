@@ -56,9 +56,6 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.SimpleCollector;
 import org.apache.lucene.util.LongBitSet;
-import worldwind.contrib.layers.quadkey.GoogleEarthLayer;
-import worldwind.contrib.layers.quadkey.GoogleRoadsLayer;
-import worldwind.contrib.layers.quadkey.VirtualEarthLayer;
 
 /**
  *
@@ -90,9 +87,9 @@ public class WorldWindView extends JPanel implements PropertyChangeListener,
 
         LayerList layerList = model.getLayers();
         //        model.getLayers().add(_areaLayer);
-        layerList.add(new GoogleEarthLayer());
-        layerList.add(new VirtualEarthLayer());
-        layerList.add(new GoogleRoadsLayer());
+//        layerList.add(new GoogleEarthLayer());
+//        layerList.add(new VirtualEarthLayer());
+//        layerList.add(new GoogleRoadsLayer());
         layerList.add(_annotations);
 
         ViewControlsLayer vLayer = new ViewControlsLayer();
