@@ -1,6 +1,19 @@
+
 language: java
+
 jdk:
-  - oraclejdk8  
+  - oraclejdk8
+
+install:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=false -B -V
+
+after_success:
+  - mvn clean cobertura:cobertura coveralls:report
+
+sudo: false
+
+
 # script:    # izpack: skipping 34 bytes of LineNumberTable attribute in com/semantic/swing
 #  - gradle release
- 
+
+

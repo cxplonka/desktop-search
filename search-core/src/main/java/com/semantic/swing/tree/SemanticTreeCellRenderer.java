@@ -68,7 +68,7 @@ public class SemanticTreeCellRenderer extends DefaultTreeCellRenderer {
             OntologyNode onode = node.getUserObject();
             /* */
             OntologyNode root = (OntologyNode) onode.getRoot();
-            _range.setBounds(0, root.get(FacetQueryHitCountCollector.KEY_FACET_COUNT));
+            _range.setBounds((double) 0, (double) root.get(FacetQueryHitCountCollector.KEY_FACET_COUNT));
             _facet_count = onode.get(FacetQueryHitCountCollector.KEY_FACET_COUNT);
             _facet_root_count = onode.get(FacetQueryHitCountCollector.KEY_FACET_ROOT_COUNT);
             /* property from IQueryGenerator strike through */

@@ -3,10 +3,10 @@ apply plugin: 'application'
 
 allprojects {
     apply plugin: 'java'
-    
+
     group = 'com.semantic'
     version = '1.0'
-    
+
     repositories {
         mavenCentral()
     }

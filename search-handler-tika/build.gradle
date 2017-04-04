@@ -1,7 +1,7 @@
 dependencies {
     compile project(':search-core')
     compile 'org.apache.tika:tika-app:1.10'
-    
+
     // plugin dependencies
     publish 'org.apache.tika:tika-app:1.10'
 }

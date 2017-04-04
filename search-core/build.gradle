@@ -1,6 +1,7 @@
 project.ext.luceneVersion = "6.2.1"
 
 dependencies {
+
     compile 'net.sf.trove4j:trove4j:3.0.3'
     compile 'org.apache.sanselan:sanselan:0.97-incubator'
     compile 'net.sf.jpathwatch:jpathwatch:0.95'
@@ -18,12 +19,13 @@ dependencies {
     compile "org.apache.lucene:lucene-queryparser:${luceneVersion}"
     compile "org.apache.lucene:lucene-queries:${luceneVersion}"
     compile "org.apache.lucene:lucene-backward-codecs:${luceneVersion}"
-   
-    compile fileTree(dir: 'libraries', include: ['*.jar'])
-    compile fileTree(dir: 'libraries/swing', include: ['*.jar'])
-    compile fileTree(dir: 'libraries/look&feel', include: ['*.jar'])
-    
+
+    compile "net.java.dev.timingframework:timingframework:1.0"
+
+    compile fileTree(dir: 'libraries', include: ['**/*.jar'])
+
     // publish for release
+
     publish 'net.sf.trove4j:trove4j:3.0.3'
     publish 'org.apache.sanselan:sanselan:0.97-incubator'
     publish 'net.sf.jpathwatch:jpathwatch:0.95'
@@ -41,10 +43,12 @@ dependencies {
     publish "org.apache.lucene:lucene-queryparser:${luceneVersion}"
     publish "org.apache.lucene:lucene-queries:${luceneVersion}"
     publish "org.apache.lucene:lucene-backward-codecs:${luceneVersion}"
-   
-    publish fileTree(dir: 'libraries', include: ['*.jar'])
-    publish fileTree(dir: 'libraries/swing', include: ['*.jar'])
-    publish fileTree(dir: 'libraries/look&feel', include: ['*.jar'])
-    
+
+    publish "net.java.dev.timingframework:timingframework:1.0"
+
+    publish fileTree(dir: 'libraries', include: ['**/*.jar'])
+
     testCompile group: 'junit', name: 'junit', version: '4.+'
+
 }
+
