@@ -59,7 +59,7 @@ import org.apache.lucene.util.LongBitSet;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class WorldWindView extends JPanel implements PropertyChangeListener,
         GenericEventListener<QueryResultEvent> {

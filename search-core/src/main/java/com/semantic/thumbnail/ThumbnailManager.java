@@ -24,7 +24,7 @@ import javax.swing.event.EventListenerList;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public final class ThumbnailManager implements Runnable {
 

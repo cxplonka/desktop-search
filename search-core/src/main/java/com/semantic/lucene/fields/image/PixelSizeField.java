@@ -12,14 +12,14 @@ import org.apache.lucene.document.IntPoint;
 
 /**
  * complete image size in pixel (datatype - int)
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class PixelSizeField implements IFieldProperty<Integer> {
 
     public static final String NAME = "image_pixel_size";
 
     @Override
-    public Class<Integer> getClazz() {
+    public Class<Integer> getType() {
         return Integer.class;
     }
 

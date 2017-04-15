@@ -18,7 +18,7 @@ import org.apache.lucene.document.Document;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ResultTableView extends javax.swing.JPanel {
     

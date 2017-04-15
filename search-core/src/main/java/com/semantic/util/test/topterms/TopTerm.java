@@ -6,7 +6,7 @@ package com.semantic.util.test.topterms;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TopTerm {
     

@@ -13,7 +13,7 @@ import java.util.Set;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  * @param <K>
  * @param <V>
  */

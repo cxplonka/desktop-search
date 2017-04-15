@@ -16,7 +16,7 @@ import javax.swing.event.EventListenerList;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class DefaultLazyList<T> implements LazyList<T> {
 

@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  * @param <Parent>
  * @param <Child>
  */

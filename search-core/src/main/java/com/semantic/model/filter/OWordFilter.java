@@ -10,7 +10,7 @@ import com.semantic.lucene.fields.FileExtField;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OWordFilter extends OMultiTermQuery {
 

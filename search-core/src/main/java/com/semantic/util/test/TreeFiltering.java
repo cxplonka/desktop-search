@@ -28,7 +28,7 @@ import org.jdesktop.swingx.JXSearchField;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TreeFiltering {
 

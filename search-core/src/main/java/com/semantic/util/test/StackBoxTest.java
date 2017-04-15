@@ -18,7 +18,7 @@ import org.jdesktop.swingx.JXCollapsiblePane;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class StackBoxTest extends JFrame {
 

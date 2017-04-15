@@ -9,7 +9,7 @@ import java.awt.TrayIcon.MessageType;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TrayInfoEvent {
 

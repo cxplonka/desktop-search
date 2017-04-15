@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class DefaultBeanInfo extends SimpleBeanInfo {
 

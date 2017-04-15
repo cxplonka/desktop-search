@@ -20,7 +20,7 @@
 //
 ///**
 // *
-// * @author Christian
+// * @author Christian Plonka (cplonka81@gmail.com)
 // */
 //public class AkkaIndexManager extends PropertyMap implements FileSystemChangeListener, IPlugIn {
 //

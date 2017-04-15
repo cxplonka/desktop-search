@@ -24,7 +24,7 @@ import javax.swing.tree.TreeCellRenderer;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class CheckBoxTreeCellRenderer extends JPanel implements TreeCellRenderer {
 

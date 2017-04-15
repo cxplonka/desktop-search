@@ -8,7 +8,7 @@ import com.semantic.lucene.fields.SizeField;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OFileSizeFilter extends OMinMaxFilter<Long>{
 

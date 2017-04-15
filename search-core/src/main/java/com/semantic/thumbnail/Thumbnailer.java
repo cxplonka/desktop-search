@@ -8,7 +8,7 @@ import java.io.File;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public interface Thumbnailer {
 

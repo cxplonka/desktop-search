@@ -8,7 +8,7 @@ import com.semantic.lucene.fields.image.PixelSizeField;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OImageResolutionFilter extends OMinMaxFilter<Integer>{
 

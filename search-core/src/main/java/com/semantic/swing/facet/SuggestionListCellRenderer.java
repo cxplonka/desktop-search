@@ -13,7 +13,7 @@ import javax.swing.JList;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 class SuggestionListCellRenderer extends TopTermListCellRenderer {
     

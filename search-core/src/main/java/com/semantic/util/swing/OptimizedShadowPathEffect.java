@@ -23,7 +23,7 @@ import java.awt.image.ConvolveOp;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public final class OptimizedShadowPathEffect {
 

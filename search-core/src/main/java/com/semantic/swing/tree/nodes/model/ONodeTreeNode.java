@@ -13,7 +13,7 @@ import com.semantic.swing.tree.nodes.TreeNodeFactory;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  * @param <T>
  */
 public class ONodeTreeNode<T extends OntologyNode> extends DefaultOntologyTreeNode<T>

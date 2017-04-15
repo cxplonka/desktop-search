@@ -38,7 +38,7 @@ import java.awt.RenderingHints;
 /**
  * for bs based icons FileSystemView.getFileSystemView().getSystemIcon();
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class DefaultDocumentGridCellRenderer extends JComponent implements GridCellRenderer {
 

@@ -12,14 +12,14 @@ import org.apache.lucene.document.DoublePoint;
 
 /**
  * GPS field TAG_GPS_LONGITUDE in decimal degree (datatype - double)
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class LonField implements IFieldProperty<Double> {
 
     public static final String NAME = "image_exif_gps_lon";
 
     @Override
-    public Class<Double> getClazz() {
+    public Class<Double> getType() {
         return Double.class;
     }
 

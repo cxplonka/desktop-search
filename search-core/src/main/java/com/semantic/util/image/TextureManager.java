@@ -18,7 +18,7 @@ import javax.imageio.ImageIO;
 /**
  * softreference texture cache.
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public final class TextureManager {
 

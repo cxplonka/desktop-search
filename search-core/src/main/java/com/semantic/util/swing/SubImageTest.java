@@ -38,7 +38,7 @@ import org.apache.sanselan.formats.tiff.write.TiffOutputSet;
 
 /**
  * http://download.oracle.com/javase/1.4.2/docs/guide/imageio/spec/apps.fm3.html
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class SubImageTest extends JFrame {
 

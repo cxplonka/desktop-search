@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 @XmlRootElement(name = "property")
 @XmlAccessorType(XmlAccessType.NONE)

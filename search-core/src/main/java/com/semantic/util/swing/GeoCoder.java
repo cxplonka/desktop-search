@@ -21,7 +21,7 @@ import javax.xml.bind.Unmarshaller;
  * limits:
  * https://developers.google.com/maps/documentation/geocoding/?hl=de-DE#Limits
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class GeoCoder {
 

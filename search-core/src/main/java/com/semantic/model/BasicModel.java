@@ -19,7 +19,7 @@ import com.semantic.model.filter.OWordFilter;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class BasicModel extends OModel {
     

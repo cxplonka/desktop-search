@@ -12,14 +12,14 @@ import org.apache.lucene.document.LongPoint;
 
 /**
  * unit = bytes (datatype - long) 
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class SizeField implements IFieldProperty<Long> {
 
     public static final String NAME = "stream_size";
 
     @Override
-    public Class<Long> getClazz() {
+    public Class<Long> getType() {
         return Long.class;
     }
 

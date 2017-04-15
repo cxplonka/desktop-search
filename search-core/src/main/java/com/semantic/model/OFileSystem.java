@@ -6,7 +6,7 @@ package com.semantic.model;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OFileSystem extends OGroup {
 

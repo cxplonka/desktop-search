@@ -37,7 +37,7 @@ import org.apache.lucene.document.Document;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class DefaultListDocumentRenderer extends JLabel implements ListCellRenderer<Document> {
 
@@ -152,9 +152,11 @@ public class DefaultListDocumentRenderer extends JLabel implements ListCellRende
             g2d.drawString(getTitle(curDocument), 70, 20);
             if (!labelSet) {
                 g2d.drawString(curDocument.get(MimeTypeField.NAME), 70, 34);
-                g2d.drawString(new Date(
-                        curDocument.getField(LastModifiedField.NAME).numericValue()
-                                .longValue()).toString(), 70, 48);
+                if (curDocument.getField(LastModifiedField.NAME) != null) {
+                    g2d.drawString(new Date(
+                            curDocument.getField(LastModifiedField.NAME).numericValue()
+                                    .longValue()).toString(), 70, 48);
+                }
             }
         }
         /* */

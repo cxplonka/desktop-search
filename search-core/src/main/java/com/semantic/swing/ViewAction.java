@@ -9,7 +9,7 @@ import javax.swing.Action;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public interface ViewAction extends Action {
     

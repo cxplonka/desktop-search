@@ -12,7 +12,7 @@ import javax.swing.SwingConstants;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 class RemoveLabel extends JLabel {
 

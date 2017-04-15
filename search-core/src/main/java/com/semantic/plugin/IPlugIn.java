@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  * @param <T>
  */
 public interface IPlugIn<T extends Context> extends IPropertyMap {

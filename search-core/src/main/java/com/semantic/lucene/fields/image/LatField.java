@@ -13,14 +13,14 @@ import org.apache.lucene.document.DoublePoint;
  * GPS Exif image exchange format informations
  * GPS field TAG_GPS_LATITUDE in decimal degree (datatype - double)
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class LatField implements IFieldProperty<Double> {
 
     public static final String NAME = "image_exif_gps_lat";
 
     @Override
-    public Class<Double> getClazz() {
+    public Class<Double> getType() {
         return Double.class;
     }
 

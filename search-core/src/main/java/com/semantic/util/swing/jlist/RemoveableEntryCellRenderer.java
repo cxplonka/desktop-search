@@ -13,7 +13,7 @@ import javax.swing.ListCellRenderer;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class RemoveableEntryCellRenderer extends JPanel implements ListCellRenderer {
 

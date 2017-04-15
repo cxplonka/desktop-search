@@ -12,14 +12,14 @@ import org.apache.lucene.document.FloatPoint;
 
 /**
  * image aspect ration (width/height) (datatype - float)
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class AspectRatioField implements IFieldProperty<Float> {
 
     public static final String NAME = "image_aspect_ratio";
 
     @Override
-    public Class<Float> getClazz() {
+    public Class<Float> getType() {
         return Float.class;
     }
 

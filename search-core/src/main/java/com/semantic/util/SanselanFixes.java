@@ -16,7 +16,7 @@ import org.apache.sanselan.formats.tiff.write.TiffOutputSet;
 /**
  * http://svn.openstreetmap.org/applications/editors/josm/plugins/photo_geotagging/src/org/openstreetmap/josm/plugins/photo_geotagging/SanselanFixes.java
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class SanselanFixes implements TiffConstants {
 

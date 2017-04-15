@@ -12,14 +12,14 @@ import org.apache.lucene.document.LongPoint;
 /**
  * ExifIFD0 field TAG_DATETIME (datatype - long)
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ExifDateField implements IFieldProperty<Long> {
 
     public static final String NAME = "image_exif_datetime";
 
     @Override
-    public Class<Long> getClazz() {
+    public Class<Long> getType() {
         return Long.class;
     }
 

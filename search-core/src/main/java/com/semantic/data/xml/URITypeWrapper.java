@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 @XmlRootElement(name = "uri")
 @XmlAccessorType(XmlAccessType.NONE)

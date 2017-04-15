@@ -26,7 +26,7 @@ import org.apache.lucene.search.BooleanClause.Occur;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TopTermsResultView extends javax.swing.JPanel implements
         GenericEventListener<QueryResultEvent>, IQueryBuilder {

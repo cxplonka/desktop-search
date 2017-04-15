@@ -14,7 +14,7 @@ import static com.semantic.swing.MainFrame.*;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 class IndexingPanel extends javax.swing.JPanel {
 

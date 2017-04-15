@@ -15,7 +15,7 @@ import javax.swing.tree.TreePath;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TreeCheckingSynchronizer implements TreeSelectionListener, PropertyChangeListener {
 

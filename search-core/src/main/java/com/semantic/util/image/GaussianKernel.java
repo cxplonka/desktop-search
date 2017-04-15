@@ -8,7 +8,7 @@ import java.awt.image.Kernel;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class GaussianKernel extends Kernel {
 

@@ -8,7 +8,7 @@ import java.lang.reflect.Array;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class GenericEventListenerList {
     /* A null array to be shared by all empty listener lists*/

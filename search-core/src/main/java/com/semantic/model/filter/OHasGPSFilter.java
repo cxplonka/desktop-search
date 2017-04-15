@@ -15,7 +15,7 @@ import org.apache.lucene.search.Query;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OHasGPSFilter extends OntologyNode implements IQueryGenerator {
 

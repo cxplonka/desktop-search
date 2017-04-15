@@ -16,7 +16,7 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class SemanticTreeCellRenderer extends DefaultTreeCellRenderer {
 
@@ -102,12 +102,12 @@ public class SemanticTreeCellRenderer extends DefaultTreeCellRenderer {
 
         int sh = g.getFontMetrics().getHeight();
         int sw = g.getFontMetrics().stringWidth(value) + 3;
-        int ss = (int) (getHeight() - ((getHeight() - sh) * 2));
+        int ss = (int) (getHeight() - sh * 0.5);
 
         g.setColor(Color.GRAY);
         g.drawString(value, getWidth() - (sw + maxw), ss);
         double n = _range.normalize(_facet_count);
         int h = getHeight() / 2;
-        g.fillRect(getWidth() - maxw, h / 2, (int) (n * maxw), h);        
+        g.fillRect(getWidth() - maxw, h / 2, (int) (n * maxw), h);
     }
 }

@@ -4,10 +4,8 @@
  */
 package com.semantic.swing.tree;
 
-import com.semantic.swing.propertysheet.IPropertySheetNode;
 import com.l2fprod.common.propertysheet.Property;
-import com.semantic.model.OntologyNode;
-import com.semantic.swing.tree.nodes.AbstractOMutableTreeNode;
+import com.semantic.swing.propertysheet.IPropertySheetNode;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.Action;
@@ -20,7 +18,7 @@ import javax.swing.tree.TreePath;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class MouseTreeListener extends MouseAdapter implements TreeSelectionListener {
 

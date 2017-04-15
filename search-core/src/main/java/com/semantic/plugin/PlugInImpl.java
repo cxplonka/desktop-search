@@ -8,7 +8,7 @@ import com.semantic.util.property.PropertyMap;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public abstract class PlugInImpl extends PropertyMap implements IPlugIn {
 }

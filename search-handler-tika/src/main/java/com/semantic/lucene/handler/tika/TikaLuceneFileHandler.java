@@ -30,7 +30,7 @@ import org.apache.tika.sax.BodyContentHandler;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TikaLuceneFileHandler extends LuceneFileHandler {
 

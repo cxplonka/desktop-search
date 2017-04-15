@@ -8,7 +8,7 @@ import com.semantic.util.property.IPropertyMap;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public interface Context extends IPropertyMap {
 }

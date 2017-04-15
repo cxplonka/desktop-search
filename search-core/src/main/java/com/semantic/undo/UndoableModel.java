@@ -8,7 +8,7 @@ import javax.swing.event.UndoableEditListener;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public interface UndoableModel {
 

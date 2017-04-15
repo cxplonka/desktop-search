@@ -23,7 +23,7 @@ import org.apache.lucene.store.RAMDirectory;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class NewSuggestionHints extends AbstractListIntelliHints {
 

@@ -12,14 +12,14 @@ import org.apache.lucene.document.IntPoint;
 
 /**
  * image width in pixel (datatype - int)
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ImageWidthField implements IFieldProperty<Integer> {
 
     public static final String NAME = "image_width";
 
     @Override
-    public Class<Integer> getClazz() {
+    public Class<Integer> getType() {
         return Integer.class;
     }
 

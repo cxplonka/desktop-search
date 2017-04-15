@@ -11,7 +11,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TopTermListCellRenderer extends JLabel implements ListCellRenderer {
 

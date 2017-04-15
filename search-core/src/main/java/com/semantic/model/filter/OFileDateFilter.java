@@ -15,7 +15,7 @@ import org.apache.lucene.search.Query;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OFileDateFilter extends OntologyNode implements IQueryGenerator {
 

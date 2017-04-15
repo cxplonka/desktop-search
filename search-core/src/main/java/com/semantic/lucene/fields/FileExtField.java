@@ -13,14 +13,14 @@ import org.apache.lucene.document.StringField;
 
 /**
  * field for file extension (datatype - string) 
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class FileExtField implements IFieldProperty<String> {
 
     public static final String NAME = "file_extension";
 
     @Override
-    public Class<String> getClazz() {
+    public Class<String> getType() {
         return String.class;
     }
 

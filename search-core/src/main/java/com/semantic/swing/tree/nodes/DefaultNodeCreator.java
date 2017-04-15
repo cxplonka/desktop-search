@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  * @param <T>
  */
 public class DefaultNodeCreator<T extends OntologyNode> implements ITreeNodeCreator<T> {

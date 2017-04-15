@@ -28,7 +28,7 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TimeLineRenderer extends JPanel {
 

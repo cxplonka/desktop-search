@@ -51,7 +51,7 @@ import org.apache.sanselan.util.IOUtils;
 /**
  * http://download.oracle.com/javase/1.4.2/docs/guide/imageio/spec/apps.fm3.html
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ImageUtil {
 

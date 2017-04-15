@@ -11,7 +11,7 @@ import java.util.logging.Level;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ODirectoryNodeBeanInfo extends OntologyNodeBeanInfo {
 

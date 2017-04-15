@@ -16,7 +16,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class WorldWindViewAction extends AbstractAction implements ViewAction, Disposable {
 

@@ -11,7 +11,7 @@ import javax.swing.undo.CannotUndoException;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 class RenameNodeUndoableEdit extends AbstractUndoableEdit {
 

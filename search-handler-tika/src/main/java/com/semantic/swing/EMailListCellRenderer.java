@@ -12,7 +12,7 @@ import org.apache.tika.metadata.DublinCore;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class EMailListCellRenderer extends DefaultListDocumentRenderer implements MimeTypeListCellRenderer {
 

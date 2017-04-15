@@ -14,7 +14,7 @@ import org.apache.lucene.search.spell.*;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class SuggestionHints extends AbstractListIntelliHints {
 

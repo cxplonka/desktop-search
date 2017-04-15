@@ -6,7 +6,7 @@ package com.semantic.lucene.handler;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class DefaultLuceneFileHandler extends LuceneFileHandler {
 

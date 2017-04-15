@@ -19,7 +19,7 @@ import org.apache.lucene.search.highlight.SimpleSpanFragmenter;
  * term count -
  * http://www.searchworkings.org/blog/-/blogs/introducing-lucene-index-doc-values
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TermHightlight {
 

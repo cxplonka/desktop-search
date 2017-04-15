@@ -15,12 +15,12 @@ import org.apache.tika.metadata.DublinCore;
 /**
  * dc:title
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TitleField implements IFieldProperty<String> {
 
     @Override
-    public Class<String> getClazz() {
+    public Class<String> getType() {
         return String.class;
     }
 

@@ -12,7 +12,7 @@ import org.apache.lucene.search.suggest.Lookup;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public final class Suggestion {
 

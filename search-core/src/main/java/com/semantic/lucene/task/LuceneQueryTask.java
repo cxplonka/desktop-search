@@ -14,7 +14,7 @@ import org.apache.lucene.search.*;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class LuceneQueryTask extends SwingWorker<TopDocs, Object> {
 

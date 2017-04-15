@@ -33,7 +33,7 @@ import org.jdesktop.animation.timing.interpolation.SplineInterpolator;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class SlideShowDialog extends JDialog {
 

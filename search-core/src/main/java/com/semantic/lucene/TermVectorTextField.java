@@ -12,7 +12,7 @@ import org.apache.lucene.document.FieldType;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TermVectorTextField extends Field {
 

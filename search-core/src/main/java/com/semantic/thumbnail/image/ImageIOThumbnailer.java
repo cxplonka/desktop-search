@@ -18,7 +18,7 @@ import javax.imageio.ImageIO;
 
 /**
  * 
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ImageIOThumbnailer implements Thumbnailer {
 

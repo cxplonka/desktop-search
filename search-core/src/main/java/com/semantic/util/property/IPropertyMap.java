@@ -8,7 +8,7 @@ import java.beans.PropertyChangeListener;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public interface IPropertyMap {
 

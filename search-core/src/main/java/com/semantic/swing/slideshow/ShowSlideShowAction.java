@@ -12,7 +12,7 @@ import org.apache.lucene.document.Document;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ShowSlideShowAction extends AbstractAction {
 

@@ -15,7 +15,7 @@ import com.semantic.swing.action.ExportModelAction;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 class GeneralPanel extends javax.swing.JPanel {
 

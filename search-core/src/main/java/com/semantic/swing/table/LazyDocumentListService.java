@@ -18,7 +18,7 @@ import org.apache.lucene.search.TopDocs;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class LazyDocumentListService implements LazyListService<Document> {
 

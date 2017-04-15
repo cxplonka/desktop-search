@@ -17,7 +17,7 @@ import javax.swing.text.JTextComponent;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public abstract class AutoSuggestion {
 

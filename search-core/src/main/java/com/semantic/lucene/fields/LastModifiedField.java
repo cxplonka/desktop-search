@@ -12,14 +12,14 @@ import org.apache.lucene.document.LongPoint;
 
 /**
  * last modification date (datatype - long) 
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class LastModifiedField implements IFieldProperty<Long> {
 
     public static final String NAME = "last_modified";
 
     @Override
-    public Class<Long> getClazz() {
+    public Class<Long> getType() {
         return Long.class;
     }
 

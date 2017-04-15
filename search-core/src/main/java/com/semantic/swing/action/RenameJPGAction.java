@@ -34,7 +34,7 @@ import org.apache.sanselan.formats.tiff.constants.ExifTagConstants;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class RenameJPGAction extends AbstractAction {
 

@@ -46,7 +46,7 @@ import org.apache.lucene.store.FSDirectory;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class IndexManager extends PropertyMap implements FileSystemChangeListener, IPlugIn {
 

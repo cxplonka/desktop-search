@@ -13,14 +13,14 @@ import org.apache.lucene.document.TextField;
 /**
  * FIELD_USER_COMMENT in exif jpeg data (datatype - string)
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class CommentField implements IFieldProperty<String> {
 
     public static final String NAME = "image_user_comment";
 
     @Override
-    public Class<String> getClazz() {
+    public Class<String> getType() {
         return String.class;
     }
 

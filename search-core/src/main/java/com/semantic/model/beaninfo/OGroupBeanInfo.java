@@ -6,7 +6,7 @@ package com.semantic.model.beaninfo;
 
 /**
  *
- * @author christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OGroupBeanInfo extends OntologyNodeBeanInfo {
 }

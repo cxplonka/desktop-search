@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class HashMapEntryTypeAdapter extends XmlAdapter<Object, Object> {
 

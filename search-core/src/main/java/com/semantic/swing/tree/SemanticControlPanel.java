@@ -30,7 +30,7 @@ import org.jdesktop.jxlayer.JXLayer;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class SemanticControlPanel extends javax.swing.JPanel implements GenericEventListener<QueryResultEvent> {
 

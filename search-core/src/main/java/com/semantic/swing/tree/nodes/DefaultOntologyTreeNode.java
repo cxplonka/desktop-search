@@ -17,7 +17,7 @@ import javax.swing.tree.MutableTreeNode;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  * @param <T>
  */
 public class DefaultOntologyTreeNode<T extends OntologyNode> extends AbstractOMutableTreeNode<T> implements IActionNode {

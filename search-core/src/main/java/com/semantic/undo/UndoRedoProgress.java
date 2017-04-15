@@ -6,7 +6,7 @@ package com.semantic.undo;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class UndoRedoProgress {
 

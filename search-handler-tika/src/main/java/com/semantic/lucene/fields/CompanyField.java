@@ -13,12 +13,12 @@ import org.apache.lucene.document.TextField;
 /**
  * extended-properties:company
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class CompanyField implements IFieldProperty<String> {
 
     @Override
-    public Class<String> getClazz() {
+    public Class<String> getType() {
         return String.class;
     }
 

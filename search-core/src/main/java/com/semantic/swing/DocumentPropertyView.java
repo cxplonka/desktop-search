@@ -54,7 +54,7 @@ import org.apache.sanselan.formats.tiff.write.TiffOutputSet;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class DocumentPropertyView extends javax.swing.JPanel {
 

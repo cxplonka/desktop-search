@@ -8,7 +8,7 @@ import java.io.File;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class Files {
 

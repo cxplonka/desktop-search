@@ -16,7 +16,7 @@ import static com.semantic.swing.preferences.GlobalKeys.*;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 class AppearancePanel extends javax.swing.JPanel {
 

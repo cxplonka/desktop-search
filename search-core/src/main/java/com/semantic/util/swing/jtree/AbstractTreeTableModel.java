@@ -11,7 +11,7 @@ import javax.swing.tree.TreePath;
 
 /**
  ** from swingx
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public abstract class AbstractTreeTableModel implements TreeModel {
 

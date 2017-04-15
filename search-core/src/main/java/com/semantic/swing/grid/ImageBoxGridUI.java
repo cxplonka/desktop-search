@@ -12,7 +12,7 @@ import javax.swing.JComponent;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ImageBoxGridUI extends BasicGridUI {
 

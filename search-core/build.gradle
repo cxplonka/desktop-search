@@ -1,11 +1,10 @@
-project.ext.luceneVersion = "6.2.1"
+project.ext.luceneVersion = "6.5.0"
 
 dependencies {
     compile 'net.sf.trove4j:trove4j:3.0.3'
-    compile 'org.apache.sanselan:sanselan:0.97-incubator'
-    compile 'net.sf.jpathwatch:jpathwatch:0.95'
+    compile 'org.apache.sanselan:sanselan:0.97-incubator'    
     compile 'org.swinglabs.swingx:swingx-all:1.6.5-1'
-    compile 'com.jidesoft:jide-oss:3.6.14'
+    compile 'com.jidesoft:jide-oss:3.6.18'
     compile 'org.swinglabs:jxlayer:3.0.2'
     
     compile "org.apache.lucene:lucene-core:${luceneVersion}"
@@ -25,10 +24,9 @@ dependencies {
     
     // publish for release
     publish 'net.sf.trove4j:trove4j:3.0.3'
-    publish 'org.apache.sanselan:sanselan:0.97-incubator'
-    publish 'net.sf.jpathwatch:jpathwatch:0.95'
+    publish 'org.apache.sanselan:sanselan:0.97-incubator'    
     publish 'org.swinglabs.swingx:swingx-all:1.6.5-1'
-    publish 'com.jidesoft:jide-oss:3.6.14'
+    publish 'com.jidesoft:jide-oss:3.6.18'
     publish 'org.swinglabs:jxlayer:3.0.2'
     
     publish "org.apache.lucene:lucene-core:${luceneVersion}"

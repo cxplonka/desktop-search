@@ -14,14 +14,14 @@ import org.apache.lucene.document.TextField;
 /**
  * use as field "_all"
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ContentField implements IFieldProperty<String> {
 
     public static final String NAME = "field_content";
     
     @Override
-    public Class<String> getClazz() {
+    public Class<String> getType() {
         return String.class;
     }
 

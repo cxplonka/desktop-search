@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class AxisRenderer extends Line2D.Double {
 

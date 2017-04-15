@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 @XmlRootElement(name="root")
 public class OModel extends OGroup {

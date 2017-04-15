@@ -12,7 +12,7 @@ import org.jdesktop.jxlayer.plaf.AbstractLayerUI;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TextOverlayUI extends AbstractLayerUI<JComponent> {
 

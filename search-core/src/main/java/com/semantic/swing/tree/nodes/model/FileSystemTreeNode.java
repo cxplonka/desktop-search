@@ -28,7 +28,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class FileSystemTreeNode extends OGroupTreeNode<OFileSystem> implements IActionNode {
 

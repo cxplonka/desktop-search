@@ -8,7 +8,7 @@ import com.semantic.model.OModel;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OntologyModelTreeNode extends ONodeTreeNode<OModel> {
     

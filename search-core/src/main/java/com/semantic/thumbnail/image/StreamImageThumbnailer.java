@@ -16,7 +16,7 @@ import org.apache.sanselan.Sanselan;
 
 /**
  * http://javagraphics.blogspot.com/2011/05/images-scaling-jpegs-and-pngs.html
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class StreamImageThumbnailer implements Thumbnailer {
 

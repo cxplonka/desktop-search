@@ -27,7 +27,7 @@ import java.util.Map;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public final class TreeNodeFactory {
 

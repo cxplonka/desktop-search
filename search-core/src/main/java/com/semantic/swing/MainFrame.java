@@ -60,7 +60,7 @@ import org.apache.lucene.search.TopDocs;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public final class MainFrame extends javax.swing.JFrame implements PropertyChangeListener,
         GenericEventListener, ListSelectionListener, WindowListener, GlobalKeys {

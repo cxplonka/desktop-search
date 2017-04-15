@@ -19,7 +19,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ODirectoryTreeNode extends ONodeTreeNode<ODirectoryNode> {
 

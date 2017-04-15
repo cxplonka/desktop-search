@@ -6,7 +6,7 @@ package com.semantic.plugin;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ServiceState {
 

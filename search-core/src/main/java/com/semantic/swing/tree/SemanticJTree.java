@@ -24,7 +24,7 @@ import javax.swing.tree.TreeSelectionModel;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class SemanticJTree extends CheckBoxTree implements Autoscroll {
 

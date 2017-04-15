@@ -8,7 +8,7 @@ import com.semantic.lucene.fields.FileExtField;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OPowerPointFilter extends OMultiTermQuery {
 

@@ -11,7 +11,7 @@ import javax.swing.tree.MutableTreeNode;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TransferableNode implements Transferable {
 

@@ -45,7 +45,7 @@ import javax.swing.event.EventListenerList;
  * does not support this mechanism, the Watch Service will poll the file system,
  * waiting for events.
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class FileSystemWatch implements Runnable, ActionListener {
 

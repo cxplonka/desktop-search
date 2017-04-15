@@ -8,7 +8,7 @@ import com.semantic.lucene.fields.image.AspectRatioField;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OImageAspectRatioFilter extends OMinMaxFilter<Float> {
 

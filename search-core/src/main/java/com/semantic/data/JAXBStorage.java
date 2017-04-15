@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class JAXBStorage {
     

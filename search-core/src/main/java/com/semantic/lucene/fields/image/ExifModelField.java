@@ -15,14 +15,14 @@ import org.apache.lucene.document.TextField;
 
 /**
  * ExifIFD0 field TAG_MODEL (datatype - string)
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ExifModelField implements IFieldProperty<String> {
 
     public static final String NAME = "image_exif_model";
 
     @Override
-    public Class<String> getClazz() {
+    public Class<String> getType() {
         return String.class;
     }
 

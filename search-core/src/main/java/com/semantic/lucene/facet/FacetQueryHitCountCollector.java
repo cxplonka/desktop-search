@@ -21,7 +21,7 @@ import org.apache.lucene.util.LongBitSet;
  * idea from
  * http://sujitpal.blogspot.com/2010/02/handling-lucene-hits-deprecation-in.html
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class FacetQueryHitCountCollector {
 

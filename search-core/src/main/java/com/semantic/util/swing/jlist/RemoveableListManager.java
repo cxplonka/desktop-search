@@ -11,7 +11,7 @@ import javax.swing.JList;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class RemoveableListManager extends MouseAdapter {
 

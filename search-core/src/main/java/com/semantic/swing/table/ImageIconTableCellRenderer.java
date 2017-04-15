@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ImageIconTableCellRenderer extends DefaultTableCellRenderer{
 

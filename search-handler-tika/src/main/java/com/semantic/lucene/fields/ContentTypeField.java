@@ -13,12 +13,12 @@ import org.apache.lucene.document.TextField;
 /**
  * content-type
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ContentTypeField implements IFieldProperty<String> {
 
     @Override
-    public Class<String> getClazz() {
+    public Class<String> getType() {
         return String.class;
     }
 

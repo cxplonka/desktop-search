@@ -37,7 +37,7 @@ import org.apache.sanselan.formats.tiff.constants.ExifTagConstants;
 /**
  * exif overview - http://www.media.mit.edu/pia/Research/deepview/exif.html
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ImageLuceneFileHandler extends LuceneFileHandler {
 

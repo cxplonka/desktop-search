@@ -11,7 +11,7 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ModifiedJGrid extends JGrid implements MouseListener {
 

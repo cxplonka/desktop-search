@@ -25,7 +25,7 @@ import org.apache.lucene.index.Term;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public abstract class LuceneFileHandler {
 
@@ -114,7 +114,7 @@ public abstract class LuceneFileHandler {
     static class DummyHandle implements IFieldProperty<Object> {
 
         @Override
-        public Class getClazz() {
+        public Class getType() {
             return Object.class;
         }
 

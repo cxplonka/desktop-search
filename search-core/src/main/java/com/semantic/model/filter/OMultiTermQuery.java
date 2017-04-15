@@ -15,7 +15,7 @@ import org.apache.lucene.search.TermQuery;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public abstract class OMultiTermQuery extends OntologyNode implements IQueryGenerator {
 

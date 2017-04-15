@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * 
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.NONE)

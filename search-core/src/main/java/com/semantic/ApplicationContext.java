@@ -37,7 +37,7 @@ import com.semantic.swing.tree.querybuilder.QueryPipeline;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public final class ApplicationContext extends PropertyMap implements Context {
 

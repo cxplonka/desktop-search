@@ -7,7 +7,7 @@ package com.semantic.util;
 
 /**
  * Should be implement by Object's who will be disposed.
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public interface Disposable {
 

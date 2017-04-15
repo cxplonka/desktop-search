@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 /**
  * by graphic gems
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class NiceNumbers {
 

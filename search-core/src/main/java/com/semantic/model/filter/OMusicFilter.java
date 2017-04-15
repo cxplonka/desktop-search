@@ -15,7 +15,7 @@ import org.apache.lucene.search.TermQuery;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OMusicFilter extends OntologyNode implements IQueryGenerator {
 

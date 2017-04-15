@@ -9,7 +9,7 @@ import java.util.EventObject;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ThumbnailLoadEvent extends EventObject{
 

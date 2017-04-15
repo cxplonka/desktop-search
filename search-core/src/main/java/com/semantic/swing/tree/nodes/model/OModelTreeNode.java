@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OModelTreeNode extends OGroupTreeNode<OModel>{    
 

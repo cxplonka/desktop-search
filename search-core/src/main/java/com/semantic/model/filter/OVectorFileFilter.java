@@ -15,7 +15,7 @@ import org.apache.lucene.search.TermQuery;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OVectorFileFilter extends OntologyNode implements IQueryGenerator {
 

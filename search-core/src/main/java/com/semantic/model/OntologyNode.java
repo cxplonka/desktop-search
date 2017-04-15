@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OntologyNode extends SNode<OntologyNode, OntologyNode> {
 

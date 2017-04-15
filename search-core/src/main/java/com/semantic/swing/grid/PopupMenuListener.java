@@ -31,7 +31,7 @@ import org.jdesktop.swingx.util.OS;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 class PopupMenuListener extends MouseAdapter implements ListSelectionListener {
 

@@ -40,7 +40,7 @@ import org.jdesktop.jxlayer.JXLayer;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ResultView extends JPanel implements MouseListener, PreferenceChangeListener,
         GenericEventListener<QueryResultEvent> {

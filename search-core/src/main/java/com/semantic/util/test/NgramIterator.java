@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class NgramIterator implements Iterator<String> {
 

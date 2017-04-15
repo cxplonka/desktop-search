@@ -9,7 +9,7 @@ import org.apache.lucene.document.Document;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 final class IndexedMsg {
 

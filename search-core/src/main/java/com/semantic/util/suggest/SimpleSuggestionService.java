@@ -20,7 +20,7 @@ import org.apache.lucene.store.RAMDirectory;
 /**
  * snapping splitpane http://www.jroller.com/santhosh/feed/entries/rss?cat=%2FSwing
  * http://www.jroller.com/santhosh/entry/file_path_autocompletion
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class SimpleSuggestionService {
 

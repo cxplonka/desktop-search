@@ -15,7 +15,7 @@ import org.apache.lucene.facet.Facets;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class FacetJTabbedPane extends JTabbedPane {
 

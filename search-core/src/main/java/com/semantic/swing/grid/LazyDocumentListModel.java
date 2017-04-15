@@ -13,7 +13,7 @@ import org.apache.lucene.document.Document;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class LazyDocumentListModel extends AbstractListModel implements OnLoadListener {
 

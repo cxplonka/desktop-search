@@ -24,7 +24,7 @@ import org.apache.sanselan.formats.tiff.fieldtypes.FieldTypeASCII;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class DocumentTableModel extends AbstractTableModel {
 

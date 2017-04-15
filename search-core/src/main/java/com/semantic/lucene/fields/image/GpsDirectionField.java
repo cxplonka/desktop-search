@@ -12,14 +12,14 @@ import org.apache.lucene.document.IntPoint;
 
 /**
  * GPS field TAG_GPS_IMG_DIRECTION in degree (datatype - int)
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class GpsDirectionField implements IFieldProperty<Integer> {
 
     public static final String NAME = "image_exif_gps_img_direction";
 
     @Override
-    public Class<Integer> getClazz() {
+    public Class<Integer> getType() {
         return Integer.class;
     }
 

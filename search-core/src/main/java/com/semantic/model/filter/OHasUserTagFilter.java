@@ -13,7 +13,7 @@ import org.apache.lucene.search.WildcardQuery;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OHasUserTagFilter extends OntologyNode implements IQueryGenerator {
 

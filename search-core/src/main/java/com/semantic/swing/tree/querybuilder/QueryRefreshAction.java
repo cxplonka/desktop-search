@@ -19,7 +19,7 @@ import javax.swing.event.TreeSelectionListener;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class QueryRefreshAction extends AbstractAction implements
         TreeSelectionListener, PropertyChangeListener {

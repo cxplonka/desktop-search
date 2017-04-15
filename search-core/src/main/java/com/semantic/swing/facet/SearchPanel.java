@@ -63,7 +63,7 @@ import org.jdesktop.swingx.prompt.PromptSupport;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class SearchPanel extends javax.swing.JPanel implements IQueryBuilder {
 

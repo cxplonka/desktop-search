@@ -17,7 +17,7 @@ import javax.xml.bind.JAXBException;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class SearchProcess extends JVMProcess {
     /* */

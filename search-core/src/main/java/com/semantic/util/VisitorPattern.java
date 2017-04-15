@@ -8,7 +8,7 @@ package com.semantic.util;
 /**
  *
  * @param <T> 
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public interface VisitorPattern<T> {
     /**

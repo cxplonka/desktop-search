@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class MyNumberPropertyEditor extends AbstractPropertyEditor {
 

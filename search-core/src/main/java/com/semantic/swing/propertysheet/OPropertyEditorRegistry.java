@@ -11,7 +11,7 @@ import java.util.Date;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OPropertyEditorRegistry extends PropertyEditorRegistry {
 

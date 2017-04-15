@@ -8,14 +8,14 @@ import org.apache.lucene.document.Document;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  * @param <T>
  */
 public interface IFieldProperty<T> {
 
     static final String EXT_SUGGEST = "_suggest";
     
-    public Class<T> getClazz();
+    public Class<T> getType();
 
     /**
      * name of the field

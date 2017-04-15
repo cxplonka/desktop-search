@@ -20,7 +20,7 @@ import org.apache.lucene.util.Version;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class DirectSpellCheckerTest extends JFrame {
 

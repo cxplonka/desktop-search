@@ -9,7 +9,7 @@ import java.awt.Dimension;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class EmptyCellRenderer extends DefaultCellRenderer {
 

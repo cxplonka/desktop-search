@@ -20,7 +20,7 @@ import javax.swing.tree.TreeNode;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public abstract class AbstractOMutableTreeNode<T extends OntologyNode> extends PropertySupport
         implements MutableTreeNode {

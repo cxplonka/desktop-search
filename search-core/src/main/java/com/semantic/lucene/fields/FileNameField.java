@@ -13,14 +13,14 @@ import org.apache.lucene.document.StringField;
 /**
  * absolute filename field for the lucene index (datatype - string)
  * also act as unique id
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class FileNameField implements IFieldProperty<String> {
 
     public static final String NAME = "file_name";
 
     @Override
-    public Class<String> getClazz() {
+    public Class<String> getType() {
         return String.class;
     }
 

@@ -6,7 +6,7 @@ package com.semantic.util.property;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class PropertyKey<T> implements IPropertyKey<T> {
 

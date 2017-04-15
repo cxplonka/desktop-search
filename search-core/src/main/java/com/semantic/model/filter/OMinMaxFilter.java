@@ -17,7 +17,7 @@ import org.apache.lucene.search.Query;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public abstract class OMinMaxFilter<T extends Number> extends OntologyNode implements IQueryGenerator {
 

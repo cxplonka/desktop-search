@@ -14,12 +14,12 @@ import org.apache.lucene.document.TextField;
 /**
  * dc:creator
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class CreatorField implements IFieldProperty<String> {
 
     @Override
-    public Class<String> getClazz() {
+    public Class<String> getType() {
         return String.class;
     }
 

@@ -10,7 +10,7 @@ import javax.swing.plaf.basic.BasicSplitPaneUI;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class LineStyleSplitPane extends JSplitPaneHack {
 

@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TopTermTableCellRenderer extends DefaultTableCellRenderer implements MouseMotionListener {
 

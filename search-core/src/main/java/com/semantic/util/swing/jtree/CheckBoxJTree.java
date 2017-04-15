@@ -20,7 +20,7 @@ import javax.swing.tree.TreePath;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class CheckBoxJTree extends JTree {
 

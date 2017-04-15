@@ -8,7 +8,7 @@ import javax.swing.Action;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public interface IActionNode {
 

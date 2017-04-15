@@ -16,7 +16,7 @@ import org.apache.lucene.search.SimpleCollector;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class NumberRangeCollector extends SimpleCollector {
 

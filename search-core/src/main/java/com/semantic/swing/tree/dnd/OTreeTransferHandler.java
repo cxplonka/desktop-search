@@ -14,7 +14,7 @@ import javax.swing.tree.TreePath;
 
 /**
  * http://www.jroller.com/santhosh/entry/visual_clues_for_jtree_dnd
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class OTreeTransferHandler extends AbstractTreeTransferHandler {
 

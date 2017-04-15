@@ -18,7 +18,7 @@ import org.apache.lucene.search.SimpleCollector;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class TopTermsCollector extends SimpleCollector {
 

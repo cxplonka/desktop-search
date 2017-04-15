@@ -11,7 +11,7 @@ import org.jdesktop.swingx.JXDatePicker;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class JXDatePickerPropertyEditor extends AbstractPropertyEditor {
 

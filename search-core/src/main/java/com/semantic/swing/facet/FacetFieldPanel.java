@@ -12,7 +12,7 @@ import org.apache.lucene.facet.LabelAndValue;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class FacetFieldPanel extends javax.swing.JPanel {
 

@@ -19,7 +19,7 @@ import org.jdesktop.animation.timing.TimingTarget;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class KenBurnsEffect extends JFrame {
 

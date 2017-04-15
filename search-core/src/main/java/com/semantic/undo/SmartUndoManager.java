@@ -11,7 +11,7 @@ import javax.swing.undo.UndoableEdit;
 
 /**
  *
- * @author cplonka
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class SmartUndoManager extends DefaultUndoManager implements Runnable {
 

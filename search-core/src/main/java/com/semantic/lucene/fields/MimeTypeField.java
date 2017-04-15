@@ -13,14 +13,14 @@ import org.apache.lucene.document.StringField;
 
 /**
  * mime type of the content (datatype - string) 
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class MimeTypeField implements IFieldProperty<String> {
 
     public static final String NAME = "mime_type";
 
     @Override
-    public Class<String> getClazz() {
+    public Class<String> getType() {
         return String.class;
     }
 

@@ -9,7 +9,7 @@ import com.l2fprod.common.propertysheet.Property;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public interface IPropertySheetNode {
 

@@ -8,7 +8,7 @@ import com.semantic.model.OntologyNode;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public interface ITreeNodeCreator<T extends OntologyNode> {
 

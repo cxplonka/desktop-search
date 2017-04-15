@@ -13,7 +13,7 @@ import javax.swing.plaf.basic.BasicSplitPaneUI;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class JSplitPaneHack extends JSplitPane implements ComponentListener {
 

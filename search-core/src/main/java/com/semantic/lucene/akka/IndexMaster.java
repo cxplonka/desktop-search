@@ -14,7 +14,7 @@
 //
 ///**
 // *
-// * @author Christian
+// * @author Christian Plonka (cplonka81@gmail.com)
 // */
 //class IndexMaster extends UntypedActor {
 //

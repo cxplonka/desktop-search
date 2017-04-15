@@ -9,7 +9,7 @@ import javax.swing.AbstractAction;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ExitAction extends AbstractAction{
 

@@ -20,7 +20,7 @@ import javax.swing.event.ListSelectionListener;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class PreferencesPanel extends javax.swing.JPanel implements ListSelectionListener {
 

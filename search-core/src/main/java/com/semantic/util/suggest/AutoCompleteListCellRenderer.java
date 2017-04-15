@@ -19,7 +19,7 @@ import javax.swing.JList;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class AutoCompleteListCellRenderer extends DefaultListCellRenderer {
 

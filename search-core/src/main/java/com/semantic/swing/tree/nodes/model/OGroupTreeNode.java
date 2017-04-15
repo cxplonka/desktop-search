@@ -35,7 +35,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Christian
+ * @author Christian Plonka (cplonka81@gmail.com)
  * @param <T>
  */
 public class OGroupTreeNode<T extends OGroup> extends ONodeTreeNode<T> implements IDropAllowed {
