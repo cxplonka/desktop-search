@@ -113,11 +113,6 @@ public class TikaLuceneFileHandler extends LuceneFileHandler {
     }
 
     @Override
-    public IFieldProperty get(String field) {
-        return repository.get(field);
-    }
-
-    @Override
     public String[] getFileExtensions() {
         /* look at every file */
         return new String[]{"*"};

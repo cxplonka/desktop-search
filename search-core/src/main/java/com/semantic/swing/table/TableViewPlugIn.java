@@ -1,8 +1,9 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.semantic.worldwind;
+package com.semantic.swing.table;
 
 import com.semantic.ApplicationContext;
 import com.semantic.plugin.Context;
@@ -14,15 +15,15 @@ import com.semantic.util.property.PropertyMap;
  *
  * @author Christian Plonka (cplonka81@gmail.com)
  */
-public class WorldWindPlugIn extends PropertyMap implements IPlugIn {
+public class TableViewPlugIn extends PropertyMap implements IPlugIn {
 
-    private WorldWindViewAction _viewAction;
+    private TableViewAction _viewAction;
 
     @Override
     public void init(Context context) throws Exception {
         /* inject viewaction */
         MainFrame frame = context.get(ApplicationContext.MAIN_VIEW);
-        frame.getResultView().addViewAction(_viewAction = new WorldWindViewAction(context));
+        frame.getResultView().addViewAction(_viewAction = new TableViewAction(context));
     }
 
     @Override

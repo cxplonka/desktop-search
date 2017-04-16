@@ -8,6 +8,7 @@ package com.semantic.lucene.fields.image;
 import com.semantic.lucene.util.IFieldProperty;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.DoublePoint;
+import org.apache.lucene.document.StoredField;
 
 /**
  * GPS Exif image exchange format informations
@@ -32,5 +33,6 @@ public class LatField implements IFieldProperty<Double> {
     @Override
     public void add(Document doc, Double value) {
         doc.add(new DoublePoint(getName(), value));
+        doc.add(new StoredField(getName(), value));
     }
 }

@@ -5,10 +5,14 @@
 package com.semantic.swing.table;
 
 import com.semantic.lucene.fields.FileNameField;
-import com.semantic.lucene.fields.MimeTypeField;
+import com.semantic.lucene.fields.LastModifiedField;
+import com.semantic.lucene.fields.SizeField;
+import com.semantic.util.DateUtil;
+import com.semantic.util.FileUtil;
 import com.semantic.util.lazy.LazyList;
 import com.semantic.util.lazy.LazyListTableModel;
 import java.io.File;
+import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.filechooser.FileSystemView;
 import org.apache.lucene.document.Document;
@@ -33,18 +37,27 @@ public class LazyDocumentsTableModel extends LazyListTableModel<Document> {
     }
 
     @Override
-    public Object getColumnValue(int rowIndex, int columnIndex, Document listElement) {
+    public Object getColumnValue(int rowIndex, int columnIndex, Document doc) {
         Object ret = null;
+        File file = new File(doc.get(FileNameField.NAME).toString());
+
         switch (columnIndex) {
             case 0:
-                ret = FileSystemView.getFileSystemView().getSystemIcon(
-                        new File(getColumnValue(rowIndex, 1, listElement).toString()));
+                ImageIcon icon = (ImageIcon) FileSystemView.getFileSystemView().getSystemIcon(file);
+                icon.setDescription(file.getName());
+                ret = icon;
                 break;
             case 1:
-                ret = listElement.get(FileNameField.NAME);
+                ret = FileUtil.humanReadableByteCount(doc.getField(SizeField.NAME).numericValue().longValue(), true);
                 break;
             case 2:
-                ret = listElement.get(MimeTypeField.NAME);
+                ret = DateUtil.formatDate(new Date(doc.getField(LastModifiedField.NAME).numericValue().longValue()));
+                break;
+            case 3:
+                ret = FileSystemView.getFileSystemView().getSystemTypeDescription(file);
+                break;
+            case 4:
+                ret = file.getAbsolutePath();
                 break;
         }
         return ret;
@@ -52,7 +65,7 @@ public class LazyDocumentsTableModel extends LazyListTableModel<Document> {
 
     @Override
     public int getColumnCount() {
-        return 3;
+        return 5;
     }
 
     @Override
@@ -60,13 +73,19 @@ public class LazyDocumentsTableModel extends LazyListTableModel<Document> {
         String ret = "";
         switch (column) {
             case 0:
-                ret = "Position";
+                ret = "Name";
                 break;
             case 1:
-                ret = "File Name";
+                ret = "Size";
                 break;
             case 2:
-                ret = "MIME Type";
+                ret = "Date modified";
+                break;
+            case 3:
+                ret = "Type";
+                break;
+            case 4:
+                ret = "Path";
                 break;
         }
         return ret;

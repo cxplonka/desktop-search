@@ -33,11 +33,11 @@ import org.jdesktop.swingx.util.OS;
  *
  * @author Christian Plonka (cplonka81@gmail.com)
  */
-class PopupMenuListener extends MouseAdapter implements ListSelectionListener {
+public class PopupMenuListener extends MouseAdapter implements ListSelectionListener {
 
     private static final Logger log = Logger.getLogger(PopupMenuListener.class.getName());
     //
-    private JPopupMenu popup;    
+    private JPopupMenu popup;
     private final Action[] actions = new Action[]{
         new ViewDocumentAction(),
         null,
@@ -50,9 +50,9 @@ class PopupMenuListener extends MouseAdapter implements ListSelectionListener {
     //
     private int[] docIDs = new int[0];
     private final LazyList<Document> documents;
-    private final ResultView parent;
+    private final JComponent parent;
 
-    public PopupMenuListener(ResultView parent, LazyList<Document> documents) {
+    public PopupMenuListener(JComponent parent, LazyList<Document> documents) {
         this.parent = parent;
         this.documents = documents;
         SwingUtils.registerKeyBoardAction(parent, actions[3]);//DeleteDocumentsAction
@@ -61,7 +61,7 @@ class PopupMenuListener extends MouseAdapter implements ListSelectionListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        //user want see popup menu         
+        //user want see popup menu
         if (SwingUtilities.isRightMouseButton(e)) {
             if (popup == null) {
                 popup = new JPopupMenu();
@@ -79,6 +79,9 @@ class PopupMenuListener extends MouseAdapter implements ListSelectionListener {
                 if (action != null) {
                     action.setEnabled(enabled);
                 }
+            }
+            if (enabled) {
+                actions[0].setEnabled(parent instanceof ResultView);
             }
             popup.show(e.getComponent(), e.getX(), e.getY());
         }
@@ -132,7 +135,7 @@ class PopupMenuListener extends MouseAdapter implements ListSelectionListener {
             }
         }
     }
-    
+
     class ViewDocumentAction extends AbstractAction {
 
         public ViewDocumentAction() {
@@ -143,7 +146,7 @@ class PopupMenuListener extends MouseAdapter implements ListSelectionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (docIDs.length > 0) {
-                ImageLayerUI ui = parent.getImageLayerUI();
+                ImageLayerUI ui = ((ResultView) parent).getImageLayerUI();
                 ui.setEnabled(true);
                 ui.setCurrentList(documents, docIDs[0]);
             }
@@ -160,7 +163,7 @@ class PopupMenuListener extends MouseAdapter implements ListSelectionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             IndexManager index = ApplicationContext.instance().get(IndexManager.LUCENE_MANAGER);
-            //really!?            
+            //really!?
             if (docIDs.length > 0) {
                 int ret = JOptionPane.showConfirmDialog(
                         SwingUtilities.windowForComponent(parent),
@@ -193,8 +196,8 @@ class PopupMenuListener extends MouseAdapter implements ListSelectionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Clipboard clipboard =
-                    Toolkit.getDefaultToolkit().getSystemClipboard();
+            Clipboard clipboard
+                    = Toolkit.getDefaultToolkit().getSystemClipboard();
             //
             TransferableFile transferable = new TransferableFile();
             for (int id : docIDs) {

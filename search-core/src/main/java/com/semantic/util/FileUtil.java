@@ -12,6 +12,22 @@ import java.io.*;
  */
 public class FileUtil {
 
+    /**
+     * http://programming.guide/java/formatting-byte-size-to-human-readable-format.html
+     * @param bytes
+     * @param si
+     * @return
+     */
+    public static String humanReadableByteCount(long bytes, boolean si) {
+        int unit = si ? 1000 : 1024;
+        if (bytes < unit) {
+            return bytes + " B";
+        }
+        int exp = (int) (Math.log(bytes) / Math.log(unit));
+        String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1) + (si ? "" : "i");
+        return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
+    }
+
     public static String getName(String path) {
         int index = path.lastIndexOf(File.separatorChar);
         if (index < 0) {
@@ -65,12 +81,12 @@ public class FileUtil {
             quiteClose(out);
         }
     }
-    
+
     public static void copyFile(File from, File toDir) throws IOException {
         if (!toDir.isDirectory() || !from.exists()) {
             throw new IOException("Destination is no Directory or source not exists.");
         }
-        /* */        
+        /* */
         copy(from, new File(toDir, from.getName()));
     }
 
@@ -87,5 +103,5 @@ public class FileUtil {
         } finally {
             quiteClose(fstream);
         }
-    }    
+    }
 }

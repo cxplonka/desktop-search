@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-/*
+ /*
  * MainFrame.java
  *
  * Created on 15.09.2011, 13:54:09
@@ -88,7 +88,7 @@ public final class MainFrame extends javax.swing.JFrame implements PropertyChang
     private DocumentTreeSelectionHighlighter treeHighlighter;
     private TreeExpansionState expansionState;
     private ThumbnailDatabaseHandle thumbnailHandle;
-    
+
     public MainFrame(ApplicationContext ctx) {
         super();
         initComponents();
@@ -123,7 +123,7 @@ public final class MainFrame extends javax.swing.JFrame implements PropertyChang
         dummyPanel.setPreferredSize(resultView.getControlView().getPreferredSize());
         documentPropertyView1.getDummyPanel().setPreferredSize(dummyPanel.getPreferredSize());
         controlPanel.add(dummyPanel, BorderLayout.NORTH);
-        expansionState = new TreeExpansionState(controlPanel.getJTree());        
+        expansionState = new TreeExpansionState(controlPanel.getJTree());
         thumbnailHandle = new ThumbnailDatabaseHandle(lazyDocuments, ThumbnailManager.def()) {
 
             @Override
@@ -224,6 +224,10 @@ public final class MainFrame extends javax.swing.JFrame implements PropertyChang
         /* unregister refresh action */
         SwingUtils.unregisterKeyBoardAction(SwingUtilities.getRootPane(this), refreshAction);
         super.removeNotify();
+    }
+
+    public DocumentTreeSelectionHighlighter getTreeHighlighter() {
+        return treeHighlighter;
     }
 
     public TrayIcon getTrayIcon() {

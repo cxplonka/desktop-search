@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
 import org.apache.lucene.document.IntPoint;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
@@ -61,9 +60,9 @@ public class LazyDocumentListService implements LazyListService<Document> {
                 Document[] ret = new Document[endElement - startElement];
                 for (int i = startElement; i < endElement; i++) {
                     ret[i - startElement] = indexSearcher.doc(topDocs.scoreDocs[i].doc);
-                    /* inject current docID for this search session */                    
+                    /* inject current docID for this search session */
                     ret[i - startElement].add(new IntPoint(
-                            FIELD_SESSION_DOCID, 
+                            FIELD_SESSION_DOCID,
                             topDocs.scoreDocs[i].doc));
                 }
                 return ret;

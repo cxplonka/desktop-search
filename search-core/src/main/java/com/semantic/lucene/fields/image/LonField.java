@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.semantic.lucene.fields.image;
 
 import com.semantic.lucene.util.IFieldProperty;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.DoublePoint;
+import org.apache.lucene.document.StoredField;
 
 /**
  * GPS field TAG_GPS_LONGITUDE in decimal degree (datatype - double)
@@ -31,5 +31,6 @@ public class LonField implements IFieldProperty<Double> {
     @Override
     public void add(Document doc, Double value) {
         doc.add(new DoublePoint(getName(), value));
+        doc.add(new StoredField(getName(), value));
     }
 }

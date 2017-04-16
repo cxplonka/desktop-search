@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.semantic.lucene.fields.image;
 
 import com.semantic.lucene.util.IFieldProperty;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.IntPoint;
+import org.apache.lucene.document.StoredField;
 
 /**
  * image width in pixel (datatype - int)
@@ -31,5 +31,6 @@ public class ImageWidthField implements IFieldProperty<Integer> {
     @Override
     public void add(Document doc, Integer value) {
         doc.add(new IntPoint(getName(), value));
+        doc.add(new StoredField(getName(), value));
     }
 }

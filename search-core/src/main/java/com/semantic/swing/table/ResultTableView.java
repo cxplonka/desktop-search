@@ -3,17 +3,21 @@
  * and open the template in the editor.
  */
 
-/*
+ /*
  * ResultTableView.java
  *
  * Created on 29.09.2011, 10:20:11
  */
 package com.semantic.swing.table;
 
+import com.semantic.swing.UIDefaults;
+import com.semantic.swing.grid.PopupMenuListener;
+import com.semantic.util.lazy.DefaultLazyList;
 import com.semantic.util.lazy.LazyList;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.UIManager;
 import org.apache.lucene.document.Document;
 
 /**
@@ -21,26 +25,44 @@ import org.apache.lucene.document.Document;
  * @author Christian Plonka (cplonka81@gmail.com)
  */
 public class ResultTableView extends javax.swing.JPanel {
-    
-    /** Creates new form ResultTableView */
+
+    /* lazy data fetching */
+    private static final int pageSize = 20;
+
+    private final LazyDocumentListService lazyService = new LazyDocumentListService();
+
+    private final LazyList<Document> lazyList = new DefaultLazyList<Document>(lazyService, pageSize);
+
+    private PopupMenuListener popupHandle;
+
     public ResultTableView() {
         initComponents();
         initOwnComponents();
     }
-    
-    private void initOwnComponents(){
-        resultTable.setDefaultRenderer(ImageIcon.class, new ImageIconTableCellRenderer());        
+
+    private void initOwnComponents() {
+        jScrollPane1.setBorder(UIManager.getBorder(UIDefaults.BORDER_GRID_VIEW));
+        resultTable.setDefaultRenderer(ImageIcon.class, new ImageIconTableCellRenderer());
         resultTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        resultTable.setModel(new LazyDocumentsTableModel(lazyList));
+
+        popupHandle = new PopupMenuListener(this, lazyList);
+        resultTable.getSelectionModel().addListSelectionListener(popupHandle);
+        resultTable.addMouseListener(popupHandle);
     }
 
     public JTable getResultTable() {
         return resultTable;
-    }    
-    
-    public void setLazyList(LazyList<Document> lazyList) {
-        resultTable.setModel(new LazyDocumentsTableModel(lazyList));
     }
-    
+
+    public LazyList<Document> getLazyList() {
+        return lazyList;
+    }
+
+    public LazyDocumentListService getLazyService() {
+        return lazyService;
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -63,4 +85,5 @@ public class ResultTableView extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable resultTable;
     // End of variables declaration//GEN-END:variables
+
 }
