@@ -6,9 +6,12 @@
 package com.semantic.lucene.fields;
 
 import com.semantic.lucene.util.IFieldProperty;
+import java.util.Calendar;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.LongPoint;
+import org.apache.lucene.document.NumericDocValuesField;
 import org.apache.lucene.document.StoredField;
+import org.apache.lucene.facet.FacetField;
 
 /**
  * last modification date (datatype - long)
@@ -32,5 +35,29 @@ public class LastModifiedField implements IFieldProperty<Long> {
     public void add(Document doc, Long value) {
         doc.add(new LongPoint(getName(), value));
         doc.add(new StoredField(getName(), value));
+        // for faceting
+        addFacetField(doc, value);
+        // for sorting
+        doc.add(new NumericDocValuesField(getName(), value));
+    }
+
+    void addFacetField(Document doc, Long value) {
+        /* take date */
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(value);
+        /* create facet category */
+        doc.add(new FacetField(getName(),
+                Integer.toString(cal.get(Calendar.YEAR)),
+                Integer.toString(cal.get(Calendar.MONTH))));
+    }
+
+    @Override
+    public boolean hasFacet() {
+        return true;
+    }
+
+    @Override
+    public boolean isHierachical() {
+        return true;
     }
 }

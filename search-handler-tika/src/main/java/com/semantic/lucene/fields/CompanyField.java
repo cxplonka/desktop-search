@@ -6,9 +6,11 @@
 package com.semantic.lucene.fields;
 
 import com.semantic.lucene.util.IFieldProperty;
+import com.semantic.util.StringUtils;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
+import org.apache.lucene.facet.FacetField;
 
 /**
  * extended-properties:company
@@ -29,6 +31,14 @@ public class CompanyField implements IFieldProperty<String> {
 
     @Override
     public void add(Document doc, String value) {
-        doc.add(new TextField(getName(), value, Field.Store.YES));
+        if (!StringUtils.isEmpty(value)) {
+            doc.add(new TextField(getName(), value, Field.Store.YES));
+            doc.add(new FacetField(getName(), value));
+        }
+    }
+
+    @Override
+    public boolean hasFacet() {
+        return true;
     }
 }

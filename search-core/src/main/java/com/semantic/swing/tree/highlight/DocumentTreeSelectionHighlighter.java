@@ -8,8 +8,10 @@ import com.semantic.ApplicationContext;
 import com.semantic.lucene.facet.FacetQueryHitCountCollector;
 import com.semantic.model.OModel;
 import com.semantic.model.OntologyNode;
+import com.semantic.swing.DocumentPropertyView;
 import com.semantic.swing.table.LazyDocumentListService;
 import com.semantic.swing.tree.nodes.AbstractOMutableTreeNode;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JTree;
 import javax.swing.ListSelectionModel;
@@ -27,16 +29,20 @@ public class DocumentTreeSelectionHighlighter implements ListSelectionListener {
 
     private final List<Document> documents;
     private final JTree tree;
+    private final DocumentPropertyView docView;
 
-    public DocumentTreeSelectionHighlighter(JTree tree, List<Document> documents) {
+    public DocumentTreeSelectionHighlighter(JTree tree, List<Document> documents, DocumentPropertyView docView) {
         this.documents = documents;
         this.tree = tree;
+        this.docView = docView;
     }
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
         /* table selection || result selection */
         if (!e.getValueIsAdjusting()) {
+            List<Document> selections = new ArrayList<Document>(1);
+
             ListSelectionModel selectionModel = (ListSelectionModel) e.getSource();
             int min = selectionModel.getMinSelectionIndex();
             /* min = max for one selection */
@@ -50,6 +56,7 @@ public class DocumentTreeSelectionHighlighter implements ListSelectionListener {
                         Document doc = documents.get(i);
                         docIDs[i - min] = ((IntPoint) doc.getField(
                                 LazyDocumentListService.FIELD_SESSION_DOCID)).numericValue().intValue();
+                        selections.add(doc);
                     }
                 }
             } else {
@@ -58,8 +65,12 @@ public class DocumentTreeSelectionHighlighter implements ListSelectionListener {
             /* evaluate model tree */
             OModel model = ApplicationContext.instance().get(ApplicationContext.MODEL);
             evaluate(model, docIDs);
+
             /* repaint */
             tree.repaint();
+
+            /* document field overview */
+            docView.setSelectedDocuments(selections.toArray(new Document[selections.size()]));
         }
     }
 

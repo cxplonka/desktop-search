@@ -44,7 +44,9 @@ public class LazyDocumentsTableModel extends LazyListTableModel<Document> {
         switch (columnIndex) {
             case 0:
                 ImageIcon icon = (ImageIcon) FileSystemView.getFileSystemView().getSystemIcon(file);
-                icon.setDescription(file.getName());
+                if (icon != null) {
+                    icon.setDescription(file.getName());
+                }
                 ret = icon;
                 break;
             case 1:

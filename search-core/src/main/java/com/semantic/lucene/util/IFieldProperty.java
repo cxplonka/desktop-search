@@ -30,6 +30,22 @@ public interface IFieldProperty<T> {
      */
     void add(Document doc, T value);
 
+    /**
+     * Used for TaxonomyIndex, facet search.
+     * @return
+     */
+    default boolean isHierachical() {
+        return false;
+    }
+
+    /**
+     * Used for TaxonomyIndex, facet search.
+     * @return
+     */
+    default boolean hasFacet() {
+        return false;
+    }
+
     default T get(Document doc) {
         switch (getType().getName()) {
             case "java.lang.Byte":

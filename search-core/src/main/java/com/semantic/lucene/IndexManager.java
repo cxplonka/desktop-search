@@ -8,24 +8,24 @@ import com.semantic.ApplicationContext;
 import com.semantic.file.event.FileSystemChangeListener;
 import com.semantic.lucene.fields.ContentField;
 import com.semantic.lucene.fields.FileNameField;
-import com.semantic.lucene.fields.LastModifiedField;
 import com.semantic.lucene.fields.image.CommentField;
 import com.semantic.lucene.fields.image.ExifMakeField;
 import com.semantic.lucene.fields.image.ExifModelField;
 import com.semantic.lucene.handler.ImageLuceneFileHandler;
 import com.semantic.lucene.handler.LuceneFileHandler;
-import com.semantic.util.FileUtil;
-import static com.semantic.lucene.handler.ImageLuceneFileHandler.*;
+import com.semantic.lucene.handler.LuceneFileHandler.IndexState;
+import com.semantic.lucene.util.IFieldProperty;
 import com.semantic.plugin.Context;
 import com.semantic.plugin.IPlugIn;
 import com.semantic.plugin.PlugInManager;
 import com.semantic.swing.MainFrame;
 import com.semantic.swing.preferences.GlobalKeys;
+import com.semantic.util.FileUtil;
 import com.semantic.util.property.IPropertyKey;
 import com.semantic.util.property.PropertyKey;
 import com.semantic.util.property.PropertyMap;
 import java.io.File;
-import java.util.Calendar;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -35,12 +35,13 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
-import org.apache.lucene.facet.FacetField;
 import org.apache.lucene.facet.FacetsConfig;
+import org.apache.lucene.facet.taxonomy.SearcherTaxonomyManager;
 import org.apache.lucene.facet.taxonomy.directory.DirectoryTaxonomyReader;
 import org.apache.lucene.facet.taxonomy.directory.DirectoryTaxonomyWriter;
 import org.apache.lucene.index.*;
 import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.SearcherFactory;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
@@ -75,6 +76,8 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
     private Directory taxoIndex;
     private DirectoryTaxonomyWriter taxoWriter;
     private DirectoryTaxonomyReader taxoReader;
+    private final FacetsConfig facetConfig = new FacetsConfig();
+    private SearcherTaxonomyManager searcherTaxonomyManager;
 
     public IndexManager() {
         log.setLevel(Level.ALL);
@@ -87,6 +90,7 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
             IndexWriterConfig config = new IndexWriterConfig(analyzer);
             config.setRAMBufferSizeMB(64);
             indexWriter = new IndexWriter(index, config);
+            searcherTaxonomyManager = new SearcherTaxonomyManager(indexWriter, true, new SearcherFactory(), taxoWriter);
             log.log(Level.INFO, "lucene indexfilemanager started!");
         } catch (Exception e) {
             log.log(Level.SEVERE, "can not init lucene indexwriter!", e);
@@ -95,6 +99,10 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
 
     public DirectoryTaxonomyReader getTaxoReader() {
         return taxoReader;
+    }
+
+    public FacetsConfig getFacetConfig() {
+        return facetConfig;
     }
 
     public IndexSearcher getIndexSearcher() {
@@ -113,6 +121,7 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
                  * approach (new index, refresh) */
                 indexSearcher = new IndexSearcher(DirectoryReader.open(indexWriter));
                 taxoReader = new DirectoryTaxonomyReader(taxoWriter);
+                searcherTaxonomyManager = new SearcherTaxonomyManager(indexWriter, true, new SearcherFactory(), taxoWriter);
                 needsUpdate = false;
             }
             return indexSearcher;
@@ -128,6 +137,10 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
 
     public IndexWriter getIndexWriter() {
         return indexWriter;
+    }
+
+    public DirectoryTaxonomyWriter getTaxoWriter() {
+        return taxoWriter;
     }
 
     public void registerFileHandle(LuceneFileHandler handle) {
@@ -157,6 +170,26 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
             }
         }
         return null;
+    }
+
+    public void commit() throws IOException {
+        indexWriter.commit();
+        taxoWriter.commit();
+    }
+
+    public void reset() throws IOException {
+        /* delete complete index */
+        getIndexWriter().deleteAll();
+        getIndexWriter().commit();
+
+        taxoWriter.close();
+        taxoIndex.close();
+
+        File taxoDir = new File(ApplicationContext.ISEARCH_HOME + "/.lucene/taxonomy");
+        taxoDir.delete();
+
+        taxoIndex = FSDirectory.open(taxoDir.toPath());
+        taxoWriter = new DirectoryTaxonomyWriter(taxoIndex, IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
     }
 
     protected void handlePath(IndexState type, File file) {
@@ -228,27 +261,11 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
         /* analyze content */
         doc.add(new TextField(ContentField.NAME, buffer.toString(), Field.Store.NO));
         /* build taxonomy index */
-        return createTaxonomy(doc);
+        return facetConfig.build(taxoWriter, doc);
     }
 
-    private Document createTaxonomy(Document doc) throws Exception {
-        Number num = doc.getField(LastModifiedField.NAME).numericValue();
-        /* take date */
-        Calendar cal = Calendar.getInstance();
-        cal.setTimeInMillis(num.longValue());
-        /* create facet category */
-        doc.add(new FacetField("Date",
-                Integer.toString(cal.get(Calendar.YEAR)),
-                Integer.toString(cal.get(Calendar.MONTH))));
-
-        IndexableField fauthor = doc.getField("dc:creator");
-        if (fauthor != null) {
-            doc.add(new FacetField("Author", fauthor.stringValue()));
-        }
-        // build facet fields an return        
-        FacetsConfig cfg = new FacetsConfig();
-        cfg.setHierarchical("Date", true);
-        return cfg.build(taxoWriter, doc);
+    public SearcherTaxonomyManager getSearcherTaxonomyManager() {
+        return searcherTaxonomyManager;
     }
 
     public ExecutorService getTaskService() {
@@ -286,6 +303,16 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
         /* listen for filesystem events with the lucene manager */
 //        context.getProperty(ApplicationContext.FILESYSTEM_MANAGER).
 //                addFileSystemChangeListener(this);
+
+        // init facet configuration
+        for (IFieldProperty def : pluginManager.allInstances(IFieldProperty.class)) {
+            if (def.hasFacet()) {
+                facetConfig.setIndexFieldName(def.getName(), def.getName() + "_");
+                if (def.isHierachical()) {
+                    facetConfig.setHierarchical(def.getName(), true);
+                }
+            }
+        }
     }
 
     @Override
@@ -295,5 +322,6 @@ public class IndexManager extends PropertyMap implements FileSystemChangeListene
         context.remove(LUCENE_MANAGER);
         index.close();
         taxoIndex.close();
+        searcherTaxonomyManager.close();
     }
 }

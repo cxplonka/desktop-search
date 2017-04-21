@@ -114,10 +114,8 @@ public class FileSystemTreeNode extends OGroupTreeNode<OFileSystem> implements I
                 IndexManager lucene = ApplicationContext.instance().get(
                         IndexManager.LUCENE_MANAGER);
                 try {
-                    /* delete complete index */
-                    lucene.getIndexWriter().deleteAll();
-                    lucene.getIndexWriter().commit();
-                    lucene.setNeedsUpdate(true);
+                    lucene.reset();
+
                     log.info("Index deleted...");
                     /* collect directories */
                     List<File> sources = new ArrayList<File>();

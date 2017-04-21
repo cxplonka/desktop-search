@@ -8,6 +8,7 @@ package com.semantic.lucene.fields;
 import com.semantic.lucene.util.IFieldProperty;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.LongPoint;
+import org.apache.lucene.document.NumericDocValuesField;
 import org.apache.lucene.document.StoredField;
 
 /**
@@ -32,5 +33,7 @@ public class SizeField implements IFieldProperty<Long> {
     public void add(Document doc, Long value) {
         doc.add(new LongPoint(getName(), value));
         doc.add(new StoredField(getName(), value));
+        // for sorting
+        doc.add(new NumericDocValuesField(getName(), value));
     }
 }

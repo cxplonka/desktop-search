@@ -43,7 +43,7 @@ public class LuceneIndexWriteTask implements Runnable {
                         MessageType.INFO));
             }
             /* commit and flush */
-            lucene.getIndexWriter().commit();
+            lucene.commit();
             /* */
             log.info(String.format("finished creating index for directories [%s]",
                     Arrays.toString(sources)));
