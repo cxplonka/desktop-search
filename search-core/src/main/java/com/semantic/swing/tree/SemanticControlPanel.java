@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-/*
+ /*
  * SemanticControlPanel.java
  *
  * Created on 19.09.2011, 10:52:18
@@ -20,6 +20,7 @@ import com.semantic.lucene.task.QueryResultEvent;
 import com.semantic.model.OModel;
 import com.semantic.swing.TextOverlayUI;
 import com.semantic.swing.UIDefaults;
+import com.semantic.swing.facet.FacetOverview;
 import com.semantic.swing.propertysheet.OPropertyEditorRegistry;
 import com.semantic.swing.propertysheet.OPropertyRendererRegistry;
 import java.awt.Dimension;
@@ -36,8 +37,8 @@ public class SemanticControlPanel extends javax.swing.JPanel implements GenericE
 
     private MouseTreeListener popupListener;
     private TextOverlayUI overlayUI;
+    private FacetOverview facetView;
 
-    /** Creates new form SemanticControlPanel */
     public SemanticControlPanel() {
         super();
         initComponents();
@@ -46,7 +47,6 @@ public class SemanticControlPanel extends javax.swing.JPanel implements GenericE
 
     private void initOwnComponents() {
         treeScroll.setBorder(UIManager.getBorder(UIDefaults.BORDER_TREE_VIEW));
-//        treeScroll.setBorder(null);        
         semanticJTree1.addMouseListener(popupListener = new MouseTreeListener(this));
         semanticJTree1.getSelectionModel().addTreeSelectionListener(popupListener);
         sheetPanel.setBorder(UIManager.getBorder(UIDefaults.PROPERTYSHEET_BORDER));
@@ -61,24 +61,19 @@ public class SemanticControlPanel extends javax.swing.JPanel implements GenericE
         /* */
         JXLayer layer = new JXLayer(sheetPanel,
                 overlayUI = new TextOverlayUI("<No View available>"));
-        layer.setMinimumSize(new Dimension(0, 0));        
-
-//        JStackedBox box = new JStackedBox();
-//        box.setBackground(UIManager.getColor(UIDefaults.BACKGROUND_TREE));
-//        box.addBoxStyle("Filter Ontology", treeScroll);
-//        
-//        SemanticJTree tree = new SemanticJTree();
-//        tree.setModel(new OModel("My Search"));
-//        JScrollPane scroll = new JScrollPane(tree);
-//        scroll.setBorder(null);
-//        box.addBoxStyle("My Search", scroll);
+        layer.setMinimumSize(new Dimension(0, 0));
 
         treeSplit.add(treeScroll, JSplitPane.LEFT);
         treeSplit.add(layer, JSplitPane.RIGHT);
         treeSplit.setDividerLocation(0.7);
         treeSplit.collapseRight();
-        /* listen for query searched events */
+        //
+        jScrollPane1.setBorder(UIManager.getBorder(UIDefaults.BORDER_TREE_VIEW));
+        jScrollPane1.setViewportView(facetView = new FacetOverview());
+        // listen for query searched events
         GenericEventBus.addEventListener(QueryResultEvent.class, this);
+        // register as query builder
+        ApplicationContext.QUERY_MANAGER.getDefaultValue().addQueryBuilder(facetView);
     }
 
     public TextOverlayUI getOverlayUI() {
@@ -104,7 +99,9 @@ public class SemanticControlPanel extends javax.swing.JPanel implements GenericE
         sheetPanel = new com.l2fprod.common.propertysheet.PropertySheetPanel();
         treeScroll = new javax.swing.JScrollPane();
         semanticJTree1 = new com.semantic.swing.tree.SemanticJTree();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         treeSplit = new com.semantic.util.swing.JSplitPaneHack();
+        jScrollPane1 = new javax.swing.JScrollPane();
 
         treeScroll.setBorder(null);
         treeScroll.setViewportView(semanticJTree1);
@@ -113,9 +110,14 @@ public class SemanticControlPanel extends javax.swing.JPanel implements GenericE
 
         treeSplit.setBorder(null);
         treeSplit.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-        add(treeSplit, java.awt.BorderLayout.CENTER);
+        jTabbedPane1.addTab("Taxonomy", treeSplit);
+        jTabbedPane1.addTab("Faceting", jScrollPane1);
+
+        add(jTabbedPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private com.semantic.swing.tree.SemanticJTree semanticJTree1;
     private com.l2fprod.common.propertysheet.PropertySheetPanel sheetPanel;
     private javax.swing.JScrollPane treeScroll;
@@ -131,5 +133,7 @@ public class SemanticControlPanel extends javax.swing.JPanel implements GenericE
         counter.facetCount(model, false, false);
         /* refresh tree */
         semanticJTree1.repaint();
+        //
+        facetView.handleEvent(event);
     }
 }

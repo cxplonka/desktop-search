@@ -20,17 +20,34 @@ public class QueryPipeline {
 
     public Query getCurrentQuery() {
         return currentQuery;
-    }    
-    
+    }
+
     public Query generateQuery() {
+        return currentQuery = generateQuery(false);
+    }
+
+    public Query generateBaseQuery() {
+        return generateQuery(true);
+    }
+
+    private Query generateQuery(boolean baseQuery) {
         BooleanQuery.Builder ret = new BooleanQuery.Builder();
         for (IQueryBuilder builder : builders) {
-            Query query = builder.createQuery();
+            Query query = null;
+            if (baseQuery) {
+                // only create basequery
+                if (builder.isBaseQuery()) {
+                    query = builder.createQuery();
+                }
+            } else {
+                query = builder.createQuery();
+            }
+
             if (query != null) {
                 ret.add(query, builder.getCondition());
             }
         }
-        return currentQuery = ret.build();
+        return ret.build();
     }
 
     public void addQueryBuilder(IQueryBuilder builder) {

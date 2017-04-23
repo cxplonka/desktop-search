@@ -13,7 +13,11 @@ import org.apache.lucene.search.Query;
  */
 public interface IQueryBuilder {
 
-    public Query createQuery();
+    Query createQuery();
 
-    public BooleanClause.Occur getCondition();
+    BooleanClause.Occur getCondition();
+
+    default boolean isBaseQuery() {
+        return false;
+    }
 }

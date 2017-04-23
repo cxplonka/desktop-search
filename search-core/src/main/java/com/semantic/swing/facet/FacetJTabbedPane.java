@@ -12,6 +12,7 @@ import com.semantic.lucene.util.IFieldProperty;
 import com.semantic.plugin.PlugInManager;
 import com.semantic.util.image.TextureManager;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.ImageIcon;
@@ -38,7 +39,7 @@ public class FacetJTabbedPane extends JTabbedPane {
         PlugInManager pluginManager = ApplicationContext.instance().get(ApplicationContext.PLUGIN_MANAGER);
         for (IFieldProperty def : pluginManager.allInstances(IFieldProperty.class)) {
             if (def.hasFacet()) {
-                faceted.put(def.getName(), new FacetFieldPanel(def.getName()));
+                faceted.put(def.getName(), new FacetFieldPanel(def));
                 addTab(null, new ImageIcon(TextureManager.def().loadImage(
                         "16x16/date_icon.png")), faceted.get(def.getName()));
             }
@@ -67,7 +68,7 @@ public class FacetJTabbedPane extends JTabbedPane {
                             cfg,
                             fc);
 
-                    faceted.get(def.getName()).setResult(facets.getTopChildren(5, def.getName()));
+                    faceted.get(def.getName()).setResult(facets.getTopChildren(5, def.getName()), Collections.emptyList());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

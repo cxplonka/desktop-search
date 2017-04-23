@@ -43,7 +43,7 @@ public class UIDefaults {
         {BACKGROUND_TREE, new Color(255, 255, 255)},
         {INFO_SCROLLPANE_BORDER, new MatteBorder(1, 1, 0, 0, Color.GRAY)},
         {PROPERTYSHEET_BORDER, new MatteBorder(1, 0, 0, 1, Color.GRAY)},
-        {BORDER_GRID_VIEW, new MatteBorder(1, 1, 1, 0, Color.GRAY)},
+        {BORDER_GRID_VIEW, new MatteBorder(1, 1, 1, 1, Color.GRAY)},
         {BORDER_TREE_VIEW, new MatteBorder(1, 0, 1, 1, Color.GRAY)},
         {BACKGROUND_GRID, Color.WHITE},
         {LIST_UNSELECTION_FROM, new Color(231, 235, 240)},

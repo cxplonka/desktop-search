@@ -5,43 +5,57 @@
  */
 package com.semantic.swing.facet;
 
-import javax.swing.DefaultListModel;
+import com.semantic.lucene.util.IFieldProperty;
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JCheckBox;
+import javax.swing.JPanel;
 import org.apache.lucene.facet.FacetResult;
 import org.apache.lucene.facet.LabelAndValue;
-//import org.apache.lucene.facet.search.FacetResultNode;
 
 /**
  *
  * @author Christian Plonka (cplonka81@gmail.com)
  */
-public class FacetFieldPanel extends javax.swing.JPanel {
+public class FacetFieldPanel extends JPanel {
 
-    private final DefaultListModel listModel = new DefaultListModel();
+    private final IFieldProperty def;
 
-    public FacetFieldPanel() {
-        this("Title");
-    }
-
-    public FacetFieldPanel(String title) {
+    public FacetFieldPanel(IFieldProperty def) {
         super();
+        this.def = def;
         initComponents();
-        setTitle(title);
-        jList1.setModel(listModel);
+        jlTitle.setText(def.getName());
     }
 
-    public void setResult(FacetResult result) {
-        listModel.removeAllElements();
+    public IFieldProperty getDef() {
+        return def;
+    }
+
+    public void setResult(FacetResult result, List<String> selectedLabels) {
+        jpContent.removeAll();
         if (result != null) {
             for (LabelAndValue lv : result.labelValues) {
-                listModel.addElement(String.format("%s [%s]",
-                        lv.label, lv.value));
+                JCheckBox cb = new JCheckBox(String.format("%s [%s]", lv.label, lv.value));
+                cb.setSelected(selectedLabels.contains(lv.label));
+                cb.putClientProperty("select_label", lv.label);
+                jpContent.add(cb);
             }
         }
     }
 
-    public void setTitle(String value) {
-        ltitle.setText(value);
-        lsmalltitle.setText(value);
+    public String[] getSelectedLabels() {
+        List<String> ret = new ArrayList<>();
+        for (Component cmp : jpContent.getComponents()) {
+            if (cmp instanceof JCheckBox) {
+                JCheckBox cb = (JCheckBox) cmp;
+                if (cb.isSelected()) {
+                    ret.add(cb.getClientProperty("select_label").toString());
+                }
+            }
+        }
+        return ret.toArray(new String[ret.size()]);
     }
 
     /**
@@ -53,65 +67,23 @@ public class FacetFieldPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ltitle = new javax.swing.JLabel();
-        lsmalltitle = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        jlTitle = new javax.swing.JLabel();
+        jpContent = new javax.swing.JPanel();
 
-        ltitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        ltitle.setText("Title");
+        setLayout(new java.awt.BorderLayout());
 
-        lsmalltitle.setText("small");
-        lsmalltitle.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 50, 1, 1));
+        jlTitle.setBackground(new java.awt.Color(153, 153, 153));
+        jlTitle.setText("jLabel1");
+        jlTitle.setOpaque(true);
+        add(jlTitle, java.awt.BorderLayout.NORTH);
 
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jScrollPane1.setBorder(null);
-
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ltitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lsmalltitle)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ltitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lsmalltitle)
-                    .addComponent(jSeparator1)
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
-        );
+        jpContent.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        jpContent.setLayout(new javax.swing.BoxLayout(jpContent, javax.swing.BoxLayout.PAGE_AXIS));
+        add(jpContent, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList jList1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lsmalltitle;
-    private javax.swing.JLabel ltitle;
+    private javax.swing.JLabel jlTitle;
+    private javax.swing.JPanel jpContent;
     // End of variables declaration//GEN-END:variables
 }

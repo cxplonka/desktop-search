@@ -6,13 +6,13 @@
 package com.semantic.swing.facet;
 
 import com.jidesoft.popup.JidePopup;
-import com.l2fprod.common.swing.ComponentFactory;
 import com.semantic.lucene.fields.ContentField;
 import com.semantic.lucene.fields.LastModifiedField;
 import com.semantic.lucene.fields.SizeField;
 import com.semantic.lucene.task.LuceneQueryTask;
 import com.semantic.lucene.task.QueryResultEvent;
 import com.semantic.swing.ShapedTransculentPopup;
+import com.semantic.swing.UIDefaults;
 import com.semantic.swing.tree.querybuilder.IQueryBuilder;
 import com.semantic.swing.tree.querybuilder.QueryRefreshAction;
 import com.semantic.util.image.TextureManager;
@@ -33,9 +33,9 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
+import javax.swing.UIManager;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -79,6 +79,7 @@ public class SearchPanel extends javax.swing.JPanel implements IQueryBuilder {
     }
 
     private void initOwnComponents() {
+        jtfSearch.setBorder(UIManager.getBorder(UIDefaults.BORDER_GRID_VIEW));
         jComboBox1.setModel(new MapComboBoxModel(SORT_BY));
         for (Map.Entry<String, Sort> entry : SORT_BY.entrySet()) {
             if (entry.getValue().equals(LuceneQueryTask.SORT)) {
@@ -112,10 +113,9 @@ public class SearchPanel extends javax.swing.JPanel implements IQueryBuilder {
 
         PromptSupport.setPrompt("Search...", jtfSearch);
 
-        JButton button = ComponentFactory.Helper.getFactory().createMiniButton();
-        button.setAction(new FacetAction());
-        BuddySupport.addRight(button, jtfSearch);
-
+//        JButton button = ComponentFactory.Helper.getFactory().createMiniButton();
+//        button.setAction(new FacetAction());
+//        BuddySupport.addRight(button, jtfSearch);
         JList list = new JList(listModel = new DefaultListModel());
         listModel.addListDataListener(new ListDataListener() {
 
@@ -174,6 +174,12 @@ public class SearchPanel extends javax.swing.JPanel implements IQueryBuilder {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jtfSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,6 +201,10 @@ public class SearchPanel extends javax.swing.JPanel implements IQueryBuilder {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfSearchActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBox1;
@@ -223,7 +233,7 @@ public class SearchPanel extends javax.swing.JPanel implements IQueryBuilder {
             /* standard analyzed */
             try {
                 ret = new BooleanQuery.Builder();
-                ret.add(parser.parse(buffer.toString()), BooleanClause.Occur.SHOULD);
+                ret.add(parser.parse(buffer.toString()), BooleanClause.Occur.FILTER);
             } catch (ParseException ex) {
                 Logger.getLogger(SearchPanel.class.getName()).log(Level.SEVERE, null, ex);
             }

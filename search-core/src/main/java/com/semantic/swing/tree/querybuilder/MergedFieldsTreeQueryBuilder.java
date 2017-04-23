@@ -40,10 +40,14 @@ public class MergedFieldsTreeQueryBuilder implements IQueryBuilder {
         return Occur.MUST;
     }
 
+    @Override
+    public boolean isBaseQuery() {
+        return true;
+    }
+
     private Query buildQuery(CheckBoxTreeSelectionModel smodel) {
         SemanticTreeModel treeModel = (SemanticTreeModel) tree.getModel();
         /* build curQuery, nodes will be call children */
-//        BooleanQuery rootQuery = new BooleanQuery();
         BooleanQuery.Builder rootQuery = new BooleanQuery.Builder();
         /* evaluate tree */
         MultiMap<String, OntologyNode> andFields = new MultiMap<String, OntologyNode>();

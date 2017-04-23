@@ -19,7 +19,6 @@ import com.semantic.swing.layerui.ImageLayerUI;
 import com.semantic.swing.list.ListCellRendererDelegate;
 import com.semantic.swing.list.ListTransferHandler;
 import static com.semantic.swing.preferences.GlobalKeys.*;
-import com.semantic.swing.preferences.PreferencesPanel;
 import com.semantic.swing.slideshow.ShowSlideShowAction;
 import com.semantic.util.image.TextureManager;
 import com.semantic.util.lazy.LazyList;
@@ -64,14 +63,12 @@ public class ResultView extends JPanel implements MouseListener, PreferenceChang
             "grid_view.png")));
     private final JLabel listView = new JLabel(new ImageIcon(TextureManager.def().loadImage(
             "list_view.png")));
-    private final JLabel prefView = new JLabel(new ImageIcon(TextureManager.def().loadImage(
-            "preferences-icon.png")));
     private final JLabel slideView = new JLabel(new ImageIcon(TextureManager.def().loadImage(
             "slideshow.png")));
     //
     private final GridTransferHandler transferHandle;
     private PopupMenuListener popupHandle;
-//    private TopTermsResultView topTermsView;    
+//    private TopTermsResultView topTermsView;
 
     public ResultView() {
         super(new BorderLayout());
@@ -102,7 +99,6 @@ public class ResultView extends JPanel implements MouseListener, PreferenceChang
     private void initOwnComponents() {
         listView.addMouseListener(this);
         gridView.addMouseListener(this);
-        prefView.addMouseListener(this);
         slideView.addMouseListener(this);
         //
         list.setCellRenderer(new ListCellRendererDelegate());
@@ -116,7 +112,7 @@ public class ResultView extends JPanel implements MouseListener, PreferenceChang
         /* clear selection action */
         SwingUtils.registerKeyBoardAction(grid, new ClearSelectionAction());
         SwingUtils.registerKeyBoardAction(grid, slideAction);
-        
+
         //
         defaultGridRenderer.setDrawShadow(PREF.getBoolean(KEY_DRAW_SHADOW, true));
         defaultGridRenderer.setDrawDescription(PREF.getBoolean(KEY_DRAW_DESCRIPTION, true));
@@ -135,10 +131,9 @@ public class ResultView extends JPanel implements MouseListener, PreferenceChang
         viewBarPanel.setBorder(new EmptyBorder(0, 5, 0, 0));
         gridView.setBorder(new EmptyBorder(0, 3, 0, 3));
         listView.setBorder(new EmptyBorder(0, 3, 0, 3));
-        prefView.setBorder(new EmptyBorder(0, 3, 0, 3));
+
         viewBarPanel.add(gridView);
         viewBarPanel.add(listView);
-        viewBarPanel.add(prefView);
         viewBarPanel.add(slideView);
 
         JPanel sliderPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -249,17 +244,6 @@ public class ResultView extends JPanel implements MouseListener, PreferenceChang
             } else if (e.getSource() == gridView) {
                 enabled(true);
                 l.show(content, "gridView");
-            } else if (e.getSource() == prefView) {
-                if (dialog == null) {
-                    dialog = new JDialog(SwingUtilities.windowForComponent(this));
-                    dialog.setModal(true);
-                    dialog.setTitle("Preferences");
-                    dialog.add(new PreferencesPanel());
-                    dialog.setSize(600, 500);
-                }
-                //
-                SwingUtils.centerComponent(this, dialog);
-                dialog.setVisible(true);
             } else if (e.getSource() == slideView) {
                 slideAction.actionPerformed(null);
             }

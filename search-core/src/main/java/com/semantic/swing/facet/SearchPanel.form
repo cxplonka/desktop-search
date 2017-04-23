@@ -52,6 +52,9 @@
       </Properties>
     </Component>
     <Component class="org.jdesktop.swingx.JXSearchField" name="jtfSearch">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfSearchActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
